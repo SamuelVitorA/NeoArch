@@ -10,6 +10,8 @@ export default function Home() {
               <Link to={"/analitic"}>analitic</Link>  
               <Link to={"/pedidos"}>pedidos</Link> 
               <Link to={"/config"}>config</Link> 
+              <Link to={"/cadastro"}>Cadastro</Link> 
+              <Link to={"/login"}>Login</Link> 
         </div>        
     )
 }
