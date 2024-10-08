@@ -12,7 +12,7 @@ export default function Rotas(){
             <Routes>
                 <Route path="/pedidos" element={<Pedidos/>}/>
                 <Route path="/analitic" element={<Analitic/>}/>
-                <Route path="/config" element={<Config/>}/>
+                <Route path="/rafdfffff" element={<Config/>}/>
                 
             </Routes>
         </BrowserRouter>
