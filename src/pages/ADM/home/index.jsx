@@ -12,6 +12,10 @@ export default function Home() {
               <Link to={"/config"}>config</Link> 
               <Link to={"/cadastro"}>Cadastro</Link> 
               <Link to={"/login"}>Login</Link> 
+              <Link to={"/Esqueceu_senha"}>Esqueceu_senha</Link> 
+              <Link to={"/Mudar_senha"}>Mudar_senha</Link> 
+              <Link to={"/Main_automo"}>Main_automo</Link> 
+              <Link to={"/Main_empresa"}>Main_empresa</Link> 
         </div>        
     )
 }
