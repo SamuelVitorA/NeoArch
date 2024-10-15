@@ -30,19 +30,19 @@ export default function Config() {
                 <coluna_esq>
                     <div className='ab'>
                         <h1>Name</h1>
-                        <input type="text" placeholder='Samuel Vitor' />
+                        <input type="text" placeholder='Samuel Vitor' value={nome} onChange={ (e) => setNome(e.target.value) } />
                     </div>
 
                     <div className='ab'>
                         <h1>Password</h1>
 
-                        <input type="text" placeholder='1234...'/>
+                        <input type="text" placeholder='1234...' value={nome} onChange={ (e) => setNome(e.target.value)/>
                     </div>
 
                     <div className='ab'>
                         <h1>E-mail</h1>
 
-                        <input type="text" placeholder='samuelvitor@gmail.com' />
+                        <input type="text" placeholder='samuelvitor@gmail.com' value={nome} onChange={ (e) => setNome(e.target.value) />
                     </div>
                 </coluna_esq>
         
