@@ -12,7 +12,13 @@ export default function Config() {
     const [ enderesso, setEnderesso ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ telefone, setTelefone ] = useState('');
-    const [ imagem, setImagem ] = useState('');
+    const [ imagem, setImagem] = useState('./assets/images/do-utilizador.png')
+        
+        function Mudarfoto(){
+            imagem = 
+            setImagem(imagem)
+        }
+
 
     return(
         <div className='config'>
@@ -21,9 +27,9 @@ export default function Config() {
             <hr/>
 
             <div className='foto'>
-                <img src="./assets/images/do-utilizador.png" alt="" />
+                <img src={imagem} alt="" />
 
-                <h6>Mudar foto de perfil</h6>
+                <input type="file" value= onClick={Mudarfoto} /> 
             </div>
             
             <div className='quadrado'>
@@ -36,13 +42,13 @@ export default function Config() {
                     <div className='ab'>
                         <h1>Password</h1>
 
-                        <input type="text" placeholder='1234...' value={nome} onChange={ (e) => setNome(e.target.value)/>
+                        <input type="text" placeholder='1234...' value={senha} onChange={ (e) => setSenha(e.target.value) }/>
                     </div>
 
                     <div className='ab'>
                         <h1>E-mail</h1>
 
-                        <input type="text" placeholder='samuelvitor@gmail.com' value={nome} onChange={ (e) => setNome(e.target.value) />
+                        <input type="text" placeholder='samuelvitor@gmail.com' value={email} onChange={ (e) => setEmail(e.target.value) }/>
                     </div>
                 </coluna_esq>
         
@@ -52,19 +58,19 @@ export default function Config() {
                     <div className='ab'>
                         <h1>CPF</h1>
 
-                        <input type="text" placeholder='000.000.000-00'/>
+                        <input type="text" placeholder='000.000.000-00'value={cpf} onChange={ (e) => setCpf(e.target.value) }/>
                     </div>
 
                     <div className='ab'>
                         <h1>Address</h1>
 
-                        <input type="text" placeholder='Rua café...' />
+                        <input type="text" placeholder='Rua café...' value={enderesso} onChange={ (e) => setEnderesso(e.target.value) } />
                     </div>
 
                     <div className='ab'>
                         <h1>telephone</h1>
 
-                        <input type="text" placeholder='11 00000-0000'/>
+                        <input type="text" placeholder='11 00000-0000' value={telefone} onChange={ (e) => setTelefone(e.target.value) }/>
                     </div>
                 </coluna_dir>
 
