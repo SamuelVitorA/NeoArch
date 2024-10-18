@@ -15,8 +15,7 @@ export default function Config() {
     const [ imagem, setImagem] = useState('./assets/images/do-utilizador.png')
         
         function Mudarfoto(){
-            imagem = 
-            setImagem(imagem)
+            imagem = setImagem(imagem)
         }
 
 
@@ -29,7 +28,7 @@ export default function Config() {
             <div className='foto'>
                 <img src={imagem} alt="" />
 
-                <input type="file" value= onClick={Mudarfoto} /> 
+    
             </div>
             
             <div className='quadrado'>
