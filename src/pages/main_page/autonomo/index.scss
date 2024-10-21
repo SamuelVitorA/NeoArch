@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+
+.aut{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    
+
+    .header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 82px;
+        width: 100vw;
+        background-color: #030303;
+        color:#eeeded;
+        font-family:Confortaa;
+        font-weight: 300px;
+        .logo{
+            width: 90px;
+            display: block;
+            margin: 0px 0px 0px 25px;
+        }
+        .navigate-control{
+            display: flex;
+            flex-direction:row;
+            justify-content: space-around;
+            margin: 0px 25px 0px 0px;
+            width: 400px;
+        }
+    }
+}

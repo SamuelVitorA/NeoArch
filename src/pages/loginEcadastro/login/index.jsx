@@ -24,7 +24,7 @@ export default function Login() {
                         />
                     </div>
                     <div className="inputs">
-                        <img src="../../../../public/assets/images/padlock.png" alt="User login" />
+                        <img src="../../../../public/assets/images/padlock.png" alt="cadeado" />
                         <input className="input"
                             type="password"
                             placeholder="Enter password"

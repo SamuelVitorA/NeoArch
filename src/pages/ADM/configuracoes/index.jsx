@@ -4,6 +4,7 @@ import './index.scss';
 import { useState } from 'react';
 
 
+
 export default function Config() {
 
     const [ nome, setNome ] = useState('');
