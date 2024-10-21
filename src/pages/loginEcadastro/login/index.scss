@@ -14,11 +14,21 @@
         height: 560px;
         border-radius: 50px;
         box-shadow: 0px 0px 1px  #030303;
-
+        
         .top{
             display: flex;
-            align-items: center;
-
+            justify-content: center;
+            flex-direction: row;
+            align-items:baseline;
+            width:200px;
+            .top-icon{
+                width: 30px;
+                height: 30px;
+                
+                
+                
+            }
+    
         }
 
         a{
@@ -29,6 +39,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
             width: 400px;
             .inputs{
                 display: flex;
@@ -41,11 +52,13 @@
                 border: none;
                 border-radius: 40px;
                 padding: 5px;
-                img{
+                .login-icons{
                     width: 30px;
-                    height: 40px;
+                    height: auto;
+                    margin-left: 10px;
                     margin-right: 20px;
-                    color: aliceblue;
+                    filter: invert(100);
+                    
                 }
                  .input{
                     border: none;
@@ -62,17 +75,15 @@
             }
 
             .button-login{
-                position: relative;
-                left: 82px;
-                    width: 200px;
-                    height: 45px;
-                    background-color:#ffffff;
-                    border-radius: 27px;
-                    border: 3px solid #030303;
+                width: 200px;
+                height: 45px;
+                background-color:#ffffff;
+                border-radius: 27px;
+                border: 3px solid #030303;
             }
 
             .dont-have-account{
-                position: relative;
+                
                 left: 100px;
                 width: 165px;
                 margin: 30px 0px 20px 0px;

@@ -2,6 +2,7 @@ import { useState, useNavigate } from "react";
 import { Link } from "react-router-dom";
 import './index.scss';
 
+
 export default function Login() {
     const [email, setEmail] = useState("")
     const [psw, setPSW] = useState("")
@@ -10,12 +11,12 @@ export default function Login() {
         <div className="login">
             <div className="login-box">
                 <div className="top">
-                    <Link ><img src="../../../../public/assets/images/Vector.png" alt="Voltar" /></Link>
-                    <h1>Log in</h1>
-                </div>
+                   <Link to="/cadastro"><img className="top-icon" src="./assets/images/voltar.png" alt="Voltar" /></Link>
+                        <h1>Log in</h1>
+                    </div>
                 <div className="middle">
                     <div className="inputs">
-                        <img src="public\assets\images\usuario-login.png" alt="User login" />
+                        <img className="login-icons" src="./assets/images/usuario-login.png" alt="User login" />
                         <input className="input"
                             type="text"
                             placeholder="Enter email"
@@ -24,7 +25,7 @@ export default function Login() {
                         />
                     </div>
                     <div className="inputs">
-                        <img src="../../../../public/assets/images/padlock.png" alt="cadeado" />
+                        <img className="login-icons" src="./assets/images/cadeado.png" alt="cadeado" />
                         <input className="input"
                             type="password"
                             placeholder="Enter password"
