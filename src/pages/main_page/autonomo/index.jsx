@@ -1,7 +1,6 @@
 import './index.scss';
 import { register } from 'swiper/element';
 
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { useState, useNavigate } from "react";
@@ -19,7 +18,7 @@ register();
 
 export default function Main_automo(){
     const data = [
-        {id:'1', video:"./assets/videos/video1carrossel.mp4"   },
+        {id:'1', video:"./assets/videos/video1carrossel.mp4"},
     ]
        return(
             <div className="aut">
@@ -30,6 +29,9 @@ export default function Main_automo(){
                         <h3>Projects</h3>
                         <h3>About</h3>
                         <h3>Contact</h3>
+                    </div>
+                    <div className="last-navigate" >
+                        <h2>Get a conference</h2>
                     </div>
                 </div>
                 <div className='section1'>
@@ -49,7 +51,25 @@ export default function Main_automo(){
                         )
                     )}
                     </Swiper>
-                
+                </div>
+                <div className="section2">
+                <Swiper
+                    slidesPerView={1}
+                    pagination={{clickable:true}}
+                    navigation
+                    >
+                        {data.map( (item)=>(
+                        <SwiperSlide key={item.id}>
+                            <video autoPlay={false} preload="auto" loop 
+                            src={item.video}
+                            alt="Slider"
+                            className='slider-item'
+                             />
+                        </SwiperSlide>
+                        )
+                    )}
+                    </Swiper>
+                    
 
                 </div>
 
