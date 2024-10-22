@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 641px;
+    height: 100vh;
     width:100vw;
 
     .login-box{
@@ -17,16 +17,17 @@
         
         .top{
             display: flex;
-            justify-content: center;
+            justify-content:space-between;
             flex-direction: row;
-            align-items:baseline;
-            width:200px;
+            align-items:center;
+            width:350px;
+            height: 100px;
+            padding-right: 80px;
+            margin-bottom: 45px;
+            margin-right: 70px;
             .top-icon{
-                width: 30px;
-                height: 30px;
-                
-                
-                
+                width: 50px;
+                height: 50px;
             }
     
         }
@@ -58,7 +59,6 @@
                     margin-left: 10px;
                     margin-right: 20px;
                     filter: invert(100);
-                    
                 }
                  .input{
                     border: none;
@@ -70,8 +70,6 @@
                     font-size: 18px;
 
                  }
-
-                 
             }
 
             .button-login{
@@ -85,7 +83,7 @@
             .dont-have-account{
                 
                 left: 100px;
-                width: 165px;
+                width: 10vw;
                 margin: 30px 0px 20px 0px;
                 color: #A2AEBB;
                 border-bottom: 1px solid #A2AEBB;
