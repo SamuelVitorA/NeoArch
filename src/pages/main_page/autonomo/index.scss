@@ -11,11 +11,13 @@
     .header{
         display: flex;
         align-items: center;
+        position: absolute;
         justify-content: space-between;
-        height: 82px;
+        height: 80px;
         width: 100vw;
-        background-color: #030303;
-        color:#eeeded;
+        background-color:transparent;
+        //color:#eeeded;
+        color:black;
         font-family:Confortaa;
         font-weight: 300px;
         .logo{
@@ -29,6 +31,19 @@
             justify-content: space-around;
             margin: 0px 25px 0px 0px;
             width: 400px;
+        }
+    }
+    .section1{
+        display: block;
+        flex-direction: column;
+        width: 100vw;
+        position: absolute;
+        
+        .slider-item{
+            
+            width: 100vw;
+            height:80vh;
+            object-fit:cover;
         }
     }
 

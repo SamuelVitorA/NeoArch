@@ -11,6 +11,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { Autoplay } from 'swiper/modules';
 
 register();
 
@@ -18,9 +19,7 @@ register();
 
 export default function Main_automo(){
     const data = [
-        {id:'1', video :'./assets/videos/video1carrossel.mp4'},
-        {},
-        {},
+        {id:'1', video:"./assets/videos/video1carrossel.mp4"   },
     ]
        return(
             <div className="aut">
@@ -41,8 +40,8 @@ export default function Main_automo(){
                     >
                         {data.map( (item)=>(
                         <SwiperSlide key={item.id}>
-                            <video 
-                            src={item.image}
+                            <video autoPlay loop 
+                            src={item.video}
                             alt="Slider"
                             className='slider-item'
                              />
