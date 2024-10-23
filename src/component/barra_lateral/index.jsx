@@ -24,17 +24,15 @@ export default function SideBar(prop) {
           <h1>{prop.nome}</h1>
         </div>
         
-
-        {prop.opa === "0" &&
             <div>
          <ul>
-            <li className="opcao">
+            <li className={prop.opa === "0" ? "opcao" : "sim"}>
               <Link to="/analitic">Analytics</Link>
             </li>
-            <li>
+            <li className={prop.opa === "1" ? "opcao" : "ralvez"}>
               <Link to="/pedidos">Orders</Link>
             </li>
-            <li>
+            <li className={prop.opa === "2" ? "opcao" : "nao"}>
               <Link to="/config">Settings</Link>
             </li>
           </ul>
@@ -44,53 +42,6 @@ export default function SideBar(prop) {
             </li>
           </ul>
             </div>
-        }
-
-        {prop.opa === "1" &&
-                    <div>
-                <ul>
-                    <li>
-                    <Link to="/analitic">Analytics</Link>
-                    </li>
-                    <li className="opcao">
-                    <Link to="/pedidos">Orders</Link>
-                    </li>
-                    <li>
-                    <Link to="/config">Settings</Link>
-                    </li>
-                </ul>
-                <ul className="exit">
-                    <li>
-                    <Link to="/">Exit Account</Link>
-                    </li>
-                </ul>
-                    </div>
-                }
-                  {prop.opa === "2" &&
-                    <div>
-                <ul>
-                    <li>
-                    <Link to="/analitic">Analytics</Link>
-                    </li>
-                    <li>
-                    <Link to="/pedidos">Orders</Link>
-                    </li>
-                    <li className="opcao">
-                    <Link to="/config">Settings</Link>
-                    </li>
-                </ul>
-                <ul className="exit">
-                    <li>
-                    <Link to="/">Exit Account</Link>
-                    </li>
-                </ul>
-                    </div>
-                }
-
-
-        
-
-        
       </div>
     </div>
   );
