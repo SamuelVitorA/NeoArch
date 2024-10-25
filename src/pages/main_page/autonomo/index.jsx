@@ -53,26 +53,11 @@ export default function Main_automo(){
                     </Swiper>
                 </div>
                 <div className="section2">
-                <Swiper
-                    slidesPerView={1}
-                    pagination={{clickable:true}}
-                    navigation
-                    >
-                        {data.map( (item)=>(
-                        <SwiperSlide key={item.id}>
-                            <video autoPlay={false} preload="auto" loop 
-                            src={item.video}
-                            alt="Slider"
-                            className='slider-item'
-                             />
-                        </SwiperSlide>
-                        )
-                    )}
-                    </Swiper>
-                    
+                    <img src="./assets/images/imagemfundomain.png" alt="" />
 
                 </div>
-
+                
+               
             </div>
         )
     

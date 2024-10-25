@@ -35,7 +35,7 @@ export default function Login() {
                     </div>
                     <button className="button-login">Login</button>
                     <div className="dont-have-account">
-                    <Link>Don't have a account yet?</Link>
+                    <Link Link to="/cadastro">Don't have a account yet?</Link>
                     </div>
                 </div>
                 <div className="forgot-password">

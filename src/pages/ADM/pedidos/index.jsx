@@ -9,6 +9,8 @@ export default function Pedidos() {
             <SideBar
                 opa="1"            
             />
+
+            
         </div>
     )
 }

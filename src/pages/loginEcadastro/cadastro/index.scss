@@ -1,0 +1,55 @@
+.cadastro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width:100vw;
+    text-decoration: none;
+
+        .middle{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 400px;
+            .inputs{
+                display: flex;
+                align-items: center;
+                justify-content: start;
+                width: 350px;
+                height: 45px;
+                background-color: #030303;
+                margin: 20px 20px;
+                border: none;
+                border-radius: 40px;
+                padding: 5px;
+                .login-icons{
+                    width: 30px;
+                    height: auto;
+                    margin-left: 10px;
+                    margin-right: 20px;
+                    filter: invert(100);
+                }
+                 .input{
+                    border: none;
+                    background-color: #030303;
+                    width: 270px;
+                    height: 30px;
+                    color: #A2AEBB;
+                    outline: none;
+                    font-size: 18px;
+
+                 }
+            }
+
+            button{
+                width: 200px;
+                height: 45px;
+                background-color:#ffffff;
+                border-radius: 27px;
+                border: 3px solid #030303;
+            }
+
+   
+        }
+}

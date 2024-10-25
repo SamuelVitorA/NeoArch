@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./index.scss"
 
 export default function SideBar(prop) {
   const [aberto, setAberto] = useState(true);
+  const [imagem, setImagem] = useState(null)
 
-
+  useEffect((torta) => {
+    setImagem(torta)
+  
+    })
 
 
   function abrir_fechar() {
@@ -20,7 +24,7 @@ export default function SideBar(prop) {
 
       <div className={`Sidebar ${aberto ? "aberto" : "fechado"} ${prop.tema}`}>
         <div className="user">
-          <img src="./assets/images/do-utilizador.png" alt="User profile" />
+          <img src={imagem} alt="User profile" />
           <h1>{prop.nome}</h1>
         </div>
         

@@ -4,7 +4,7 @@
 .aut{
     display: flex;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     flex-direction: column;
     
 
@@ -67,4 +67,9 @@
             
         }
     }   
+    .section2{
+        height: 64vh;
+        
+    }
+    
 }
