@@ -17,33 +17,41 @@ export default function Cadastro() {
                 senha: senha
             }
             let resposta = axios.post("http://localhost:1234/registro", data)
-            window.alert(resposta.data)
-            navegacao('/')
+            navegacao('/login')
         }
     
     return(
         <div className="cadastro">
-            <div className="top">
-
-            </div>
-
-            <div className="middle">
-                <div className="inputs">
-                    <img className="login-icons" src="/assets/images/usuario-login.png" alt="User login" />
-                    
-                    <input className="input" type="email" placeholder="Enter your Email" value={email} onChange={e => setEmail(e.target.value)} />
-
+               <div className="login-box">
+                <div className="top">
+                   <Link to="/login"><img className="top-icon" src="./assets/images/voltar.png" alt="Voltar" /></Link>
+                        <h1>cadastro</h1>
+                    </div>
+                <div className="middle">
+                    <div className="inputs">
+                        <img className="login-icons" src="./assets/images/usuario-login.png" alt="User login" />
+                        <input className="input"
+                            type="text"
+                            placeholder="Enter email"
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
+                       
+                        />
+                    </div>
+                    <div className="inputs">
+                        <img className="login-icons" src="./assets/images/cadeado.png" alt="cadeado" />
+                        <input className="input"
+                            type="password"
+                            placeholder="Enter password"
+                            value={senha}
+                            onChange={e => setSenha(e.target.value)}
+                            
+                        />
+                    </div>
+                    <button className="button-login" onClick={cadastrar} >Register</button>
+                   
                 </div>
-
-                <div className="inputs">
-                    <img className="login-icons" src="/assets/images/cadeado.png" alt="Cadeado" />
-
-                    <input  className="input" type="password" placeholder="Enter your Password" value={senha} onChange={e => setSenha(e.target.value)} />
-                </div>
-                
-                <button onClick={cadastrar}>Cadastrar</button>
-        
-            </div>
+            </div>  
         </div>
     )
     

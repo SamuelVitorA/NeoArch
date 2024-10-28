@@ -1,17 +1,38 @@
-import { useState, useNavigate } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import './index.scss';
+import axios from "axios";
 
 
 export default function Login() {
     const [email, setEmail] = useState("")
     const [psw, setPSW] = useState("")
 
+    let navigate = useNavigate()
+ 
+    async function logar(){
+        let data = {
+            email: email,
+            senha: psw
+        }
+
+        let resposta = await axios.post("http://localhost:1234/logar", data)
+
+        
+       if(resposta.data.senha == psw  && resposta.data.email == email ){
+          navigate('/analitic')
+       }
+       else {
+        alert('Email ou senha incorreta')
+       }
+       
+    }
+
     return(
         <div className="login">
             <div className="login-box">
                 <div className="top">
-                   <Link to="/cadastro"><img className="top-icon" src="./assets/images/voltar.png" alt="Voltar" /></Link>
+                   <Link to="/Main_automo"><img className="top-icon" src="./assets/images/voltar.png" alt="Voltar" /></Link>
                         <h1>Log in</h1>
                     </div>
                 <div className="middle">
@@ -33,7 +54,7 @@ export default function Login() {
                             onChange={e => setPSW(e.target.value)}
                         />
                     </div>
-                    <button className="button-login">Login</button>
+                    <button className="button-login" onClick={logar}>Login</button>
                     <div className="dont-have-account">
                     <Link Link to="/cadastro">Don't have a account yet?</Link>
                     </div>

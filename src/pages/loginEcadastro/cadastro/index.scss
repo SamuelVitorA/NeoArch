@@ -1,10 +1,50 @@
+
 .cadastro{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
     width:100vw;
     text-decoration: none;
+    
+    .login-box{
+        display:flex;
+        flex-direction: column;
+        padding-top: 30px;
+        align-items: center;
+        width: 500px;
+        height: 400px;
+        border-radius: 50px;
+        box-shadow: 0px 0px 1px  #030303;
+        a{
+            text-decoration: none;
+        }
+        
+        .top{
+            display: flex;
+            justify-content:space-between;
+            flex-direction: row;
+            align-items:center;
+            width:350px;
+            height: 100px;
+            padding-right: 80px;
+            margin-bottom: 45px;
+            margin-right: 8vw;
+            
+            .top-icon{
+                width: 50px;
+                height: 50px;
+            }
+
+            h1 {
+                font-size: 4rem;
+            }
+    
+        }
+
+        a{
+            color: #A2AEBB;
+        }
 
         .middle{
             display: flex;
@@ -42,7 +82,7 @@
                  }
             }
 
-            button{
+            .button-login{
                 width: 200px;
                 height: 45px;
                 background-color:#ffffff;
@@ -50,6 +90,21 @@
                 border: 3px solid #030303;
             }
 
-   
+            .dont-have-account{
+                
+                left: 100px;
+                width: 15.7vw;
+                margin: 30px 0px 20px 0px;
+                color: #A2AEBB;
+                border-bottom: 1px solid #A2AEBB;
+            }
+            
         }
+        .forgot-password{
+            border-bottom: 1px solid #A2AEBB;
+            width: 13.6vw;
+            margin: 0vw 0vw 0vw 23vw;
+        }
+        
+    }
 }

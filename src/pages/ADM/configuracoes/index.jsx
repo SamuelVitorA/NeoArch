@@ -53,6 +53,7 @@ export default function Config() {
         }
         let resposta = axios.put(`http://localhost:1234/alterar?id=1`, data)
         alert('sucesso')
+        
     }
 
     function alterarImagem(e) {
