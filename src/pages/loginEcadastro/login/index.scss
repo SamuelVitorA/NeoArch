@@ -12,10 +12,10 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 500px;
-        height: 560px;
+        width: 40vw;
+        height: 63vh;
         border-radius: 50px;
-        box-shadow: 0px 0px 1px  #030303;
+        box-shadow: 0px 0px 6px 0px  #706d6d;
         a{
             text-decoration: none;
         }
@@ -28,7 +28,7 @@
             width:350px;
             height: 100px;
             padding-right: 80px;
-            margin-bottom: 45px;
+            margin-bottom: 4.75vh;
             margin-right: 8vw;
             
             .top-icon{
@@ -47,7 +47,9 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            width: 400px;
+            padding-bottom: 5vh;
+            width: 30vw;
+            height: 37vh;
             .inputs{
                 display: flex;
                 align-items: center;
@@ -78,28 +80,24 @@
                  }
             }
 
-            .button-login{
-                width: 200px;
-                height: 45px;
+            .button-login {
+                width: 15vw;
+                height: 6vh;
                 background-color:#ffffff;
                 border-radius: 27px;
-                border: 3px solid #030303;
+                border-style: none;
+                border: 2px solid #030303;
+                box-shadow: 0px 0px 6px 0px  #706d6d;
+                margin-top: 2vh;
+                box-shadow: none;
+                outline: none;
             }
 
-            .dont-have-account{
-                
-                left: 100px;
-                width: 15.7vw;
-                margin: 30px 0px 20px 0px;
-                color: #A2AEBB;
-                border-bottom: 1px solid #A2AEBB;
-            }
-            
         }
         .forgot-password{
             border-bottom: 1px solid #A2AEBB;
-            width: 13.6vw;
-            margin: 0vw 0vw 0vw 23vw;
+            width: 11vw;
+            margin: 0vw 0vw 0vw 22vw;
         }
         
     }

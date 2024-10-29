@@ -15,11 +15,10 @@ export default function Login() {
             email: email,
             senha: psw
         }
-
         let resposta = await axios.post("http://localhost:1234/logar", data)
 
         
-       if(resposta.data.senha == psw  && resposta.data.email == email ){
+       if(resposta.data.senha == psw  && resposta.data.email == email){
           navigate('/analitic')
        }
        else {
@@ -55,12 +54,10 @@ export default function Login() {
                         />
                     </div>
                     <button className="button-login" onClick={logar}>Login</button>
-                    <div className="dont-have-account">
-                    <Link Link to="/cadastro">Don't have a account yet?</Link>
-                    </div>
+                    
                 </div>
                 <div className="forgot-password">
-                    <Link to>forgot your password?</Link>
+                    <Link to='/Esqueceu_senha'>forgot your password?</Link>
                 </div>
 
             </div>    
