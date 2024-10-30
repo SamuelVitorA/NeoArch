@@ -12,7 +12,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 40vw;
+        width: 33vw;
         height: 63vh;
         border-radius: 50px;
         box-shadow: 0px 0px 6px 0px  #706d6d;
@@ -25,10 +25,17 @@
             justify-content:space-between;
             flex-direction: row;
             align-items:center;
+<<<<<<< HEAD
             width:26vw;
             height: 10vh;
             padding-right: 4.10vw;
             margin-bottom: 4.30vh;
+=======
+            width:20vw;
+            height: 7vh;
+            padding-right: 80px;
+            margin-bottom: 4.75vh;
+>>>>>>> b9f8808c668e596a163bba540c06f08064dce188
             margin-right: 8vw;
             
             .top-icon{
@@ -50,14 +57,14 @@
             justify-content: center;
             align-items: center;
             padding-bottom: 5vh;
-            width: 30vw;
+            width: 21vw;
             height: 37vh;
             .inputs{
                 display: flex;
                 align-items: center;
                 justify-content: start;
-                width: 350px;
-                height: 45px;
+                width: 20vw;
+                height: 5vh;
                 background-color: #030303;
                 margin: 20px 20px;
                 border: none;
@@ -73,8 +80,8 @@
                  .input{
                     border: none;
                     background-color: #030303;
-                    width: 270px;
-                    height: 30px;
+                    width: 16vw;
+                    height: 4vh;
                     color: #A2AEBB;
                     outline: none;
                     font-size: 18px;
@@ -83,8 +90,8 @@
             }
 
             .button-login {
-                width: 15vw;
-                height: 6vh;
+                width: 13vw;
+                height: 5vh;
                 background-color:#ffffff;
                 border-radius: 27px;
                 border-style: none;
@@ -98,7 +105,6 @@
         }
         .forgot-password{
             border-bottom: 1px solid #A2AEBB;
-            width: 11vw;
             margin: 0vw 0vw 0vw 22vw;
         }
         
