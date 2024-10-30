@@ -1,0 +1,74 @@
+.emp {
+    width: 100vw;
+    height: 100vh;
+
+    a {
+        text-decoration: none;
+        color: #000;
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-size: 1.5vw;
+    }
+    
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 20px 20px 20px;
+        width: 100vw;
+       
+        
+        img {
+            height: 9vh;
+            
+        }
+
+        .links {
+            display: flex;
+            width: 25vw;
+            justify-content: space-evenly;
+        }
+
+        .schedule {
+            a {
+                color: #ffffff;
+            }
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000000;
+            height:4vh;
+            padding: 20px;
+            border-radius: 4px; 
+        }
+    }
+
+     main {
+        display: flex;
+        flex-direction: column;
+        margin: 0px 50px;
+        
+        .middle-top{
+            display: flex;
+            flex-direction: row;
+            
+            
+            .comb{
+
+
+                .mt1{
+
+
+                 h1{
+                    font-size: 80px
+                 }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');

@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+
+.aut{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+
+    a{
+        text-decoration: none;
+        color:#eeeded;
+        font-weight: 300px;
+        font-size: 20px;
+    }
+
+    header{
+        display: flex;
+        align-items: center;
+        position:fixed;
+        justify-content: center;
+        height: 90px;
+        width: 100vw;
+        font-family:Confortaa;
+        -webkit-transition: background-color 1s ease-out;
+        -moz-transition: background-color 1s ease-out;
+        -o-transition: background-color 0.5s ease-out;
+        transition: background-color 1s ease-out;
+        font-weight: 300px;
+        &:hover{
+            background-color: black;
+            transition-delay: background-color 2s ease-in;
+        }
+
+
+        .logo{
+            width: 90px;
+            margin: 0px 0px 0px 60px;
+        }
+        .navigate-control{
+            display: flex;
+            flex-direction:row;
+            justify-content: space-around;
+            margin: 0px 300px 0px 40px;
+            width: 490px;
+            color:#eeeded;
+            font-family:Confortaa;
+            font-weight: 300px;
+        }
+        
+
+        
+        .last-navigate{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #FF9B6C;
+            width: 220px;
+            height: 25px;
+            border-bottom: 1px solid #FF9B6C;
+            margin: 0px 40px 0px 0px;
+            
+        }
+    }
+    .section1{
+        display: block;
+        flex-direction: column;
+        
+        height: 64vh;
+        z-index: -1;
+        
+        .slider-item{
+            width: 100%;
+            height:100%;
+            
+        }
+    }   
+    .section2{
+        height: 64vh;
+        
+    }
+    
+}
