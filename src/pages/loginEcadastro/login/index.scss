@@ -25,17 +25,19 @@
             justify-content:space-between;
             flex-direction: row;
             align-items:center;
-            width:350px;
-            height: 100px;
-            padding-right: 80px;
-            margin-bottom: 4.75vh;
+            width:26vw;
+            height: 10vh;
+            padding-right: 4.10vw;
+            margin-bottom: 4.30vh;
             margin-right: 8vw;
             
             .top-icon{
                 width: 50px;
                 height: 50px;
             }
-    
+            h1{
+                font-size:4.7vh;
+            }
         }
 
         a{
