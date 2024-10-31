@@ -1,58 +1,52 @@
 import './index.scss';
-
-import { useState} from "react";
+import { useState } from "react";
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
-
-export default function Esqueceu_senha() {
-
+export default function EsqueceuSenha() {
     const [email, setEmail] = useState("");
-    
-    let navigate = useNavigate()
+    const navigate = useNavigate();
 
-    async function confirmar(){
-        let data = {
-            email: email
+    async function confirmar() {
+        const data = { email };
+        try {
+            const resposta = await axios.post("http://localhost:1234/confirmarEmail", data);
+            if (resposta.data.email === email) {
+                navigate('/Mudar_senha');
+            } else {
+                alert('Email incorreto');
+            }
+        } catch (error) {
+            console.error("Erro ao confirmar email:", error);
         }
-        let resposta = await axios.post("http://localhost:1234/confirmarEmail", data)
-        if(resposta.data.email == email){
-            navigate('/Mudar_senha')
-         }
-         else {
-            alert('Email incorreto')
-           }
-           
     }
-    
-       return(
-        <div className='esq'>
-                   <div className="login-box">
+
+    return (
+        <div className='register'>
+            <div className="register-box">
                 <div className="top">
-                   <Link to="/login"><img className="top-icon" src="./assets/images/voltar.png" alt="Voltar" /></Link>
-                        <h1>Password reset</h1>
-                    </div>
+                    <Link to="/login">
+                        <img className="top-icon" src="./assets/images/voltar.png" alt="Voltar" />
+                    </Link>
+                    <h1>Password Reset</h1>
+                </div>
                 <div className="middle">
                     <div className="inputs">
                         <img className="login-icons" src="./assets/images/usuario-login.png" alt="User login" />
-                        <input className="input"
+                        <input
                             type="text"
                             placeholder="Enter email"
                             value={email}
-                            onChange={e => setEmail(e.target.value)}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
-                  
-                    <button className="button-login" onClick={confirmar} >confirmar</button>
-                    
+                    <button className="button-login" onClick={confirmar}>Confirmar</button>
                 </div>
                 <div className="forgot-password">
-                    <Link to>We will send you a password reset email</Link>
+                    <Link to="#">We will send you a password reset email</Link>
                 </div>
-
-            </div>  
+            </div>
         </div>
-        )
-    }    
-    
+    );
+}
 
