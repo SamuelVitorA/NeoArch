@@ -1,7 +1,3 @@
-
-
-
-
 .config {
     display: flex;
     
@@ -34,6 +30,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
         .quadrado{
             display: flex;
             margin: 20px;
@@ -77,19 +74,18 @@
             border: 5px solid transparent;
             box-shadow: 0px 4px 6px 0px #6A6A6A;
             font-size: 30px;
-         }
+
         }
+
     }
 
-
-    
     .acessibilidade{
         max-width: 30px 0px;
         margin-top: 45px;
         
-
         .a{
             margin-bottom: 30px;
+
         }
        
         
@@ -102,67 +98,122 @@
             align-items: center;
             padding: 8px;
             margin: 6px;
+
         }
 
-    .toggle {
-        display: inline-block;
-        height: 1.9rem;
-        position: relative;
-        width: 3.5rem;
+        .toggle {
+            display: inline-block;
+            height: 1.9rem;
+            position: relative;
+            width: 3.5rem;
+
         }
+
         .toggle input {
             cursor: pointer;
             height: 0;
-        width: 0;
-    }
-    .toggle input::before {
-        background-color: #000000;
-        border: 1px solid #ffffff;
-        border-radius: 1rem;
-        content: '';
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
-        transition: background-color 0.25s ease-in-out;
-        width: 100%;
-    }
-    .toggle input:checked::before {
-        background-color: #ffffff;
-        border: 1px solid #000000;
-    }
-    .toggle input:checked::after {
-        background-color: #000000;
-    }
-    .toggle input::after {
-        background-color: #919191;
-        border-radius: 50%;
-        content: '';
-        height: 1.6rem;
-        left: 0.2rem;
-        position: absolute;
+            width: 0;
+
+        }
+
+        .toggle input::before {
+            background-color: #000000;
+            border: 1px solid #ffffff;
+            border-radius: 1rem;
+            content: '';
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            transition: background-color 0.25s ease-in-out;
+            width: 100%;
+
+        }
+
+        .toggle input:checked::before {
+            background-color: #ffffff;
+            border: 1px solid #000000;
+
+        }
+
+        .toggle input:checked::after {
+            background-color: #000000;
+            transform: translateX(1.65rem);
+
+        }
+
+        .toggle input::after {
+            background-color: #919191;
+            border-radius: 50%;
+            content: '';
+            height: 1.6rem;
+            left: 0.2rem;
+            position: absolute;
             top: 0.15rem;
             transition: transform 0.25s ease-in-out;
             width: 1.4rem;
         }
         
-        .toggle input:checked::after {
-            transform: translateX(1.65rem);
-        }
-
         .linha{
             display: flex;
             flex-direction: row;
             justify-content: space-around;
             margin-top: 30px;
-                
 
             .red{
                 color:#ff0000
             }
             
         }
+
     }
-        
-        
-    
+           
+}
+
+@media (max-width: 1440px) {
+
+
+
+}
+
+@media (max-width: 1280px) {
+
+
+
+}
+
+@media (max-width: 1024px) {
+
+
+
+}
+
+@media (max-width: 768px) {
+
+
+
+}
+
+@media (max-width: 540px) {
+
+
+
+}
+
+@media (max-width: 425px) {
+
+
+
+}
+
+@media (max-width: 375px) {
+
+
+
+}
+
+@media (max-width: 320px) {
+
+
+
+}

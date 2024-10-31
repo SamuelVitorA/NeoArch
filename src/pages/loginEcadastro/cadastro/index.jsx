@@ -21,39 +21,37 @@ export default function Cadastro() {
         }
     
     return(
-        <div className="cadastro">
-               <div className="login-box">
+        <div className="register">
+            <div className="login-box">
                 <div className="top">
-                   <Link to="/login"><img className="top-icon" src="./assets/images/voltar.png" alt="Voltar" /></Link>
-                        <h1>cadastro</h1>
-                    </div>
+                    <Link to="/">
+                        <img className="top-icon" src="./assets/images/voltar.png" alt="Voltar" />
+                    </Link>
+                    <h1>Register</h1>
+                </div>
                 <div className="middle">
                     <div className="inputs">
                         <img className="login-icons" src="./assets/images/usuario-login.png" alt="User login" />
-                        <input className="input"
+                        <input
                             type="text"
                             placeholder="Enter email"
                             value={email}
                             onChange={e => setEmail(e.target.value)}
-                       
                         />
                     </div>
                     <div className="inputs">
                         <img className="login-icons" src="./assets/images/cadeado.png" alt="cadeado" />
-                        <input className="input"
+                        <input
                             type="password"
                             placeholder="Enter password"
                             value={senha}
                             onChange={e => setSenha(e.target.value)}
-                            
                         />
                     </div>
-                    <button className="button-login" onClick={cadastrar} >Register</button>
-                   
+                    <button className="button-login" onClick={cadastrar}>Register</button>
                 </div>
-            </div>  
+            </div>    
         </div>
     )
     
 }
-

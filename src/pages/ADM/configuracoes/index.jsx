@@ -3,6 +3,7 @@ import './index.scss';
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import SideBar from '../../../component/barra_lateral';
 
@@ -170,8 +171,8 @@ export default function Config() {
                     <hr />
 
                     <div className='linha'>
-                        <h2>Register Account</h2>
-                        <h2>Choose Account</h2>
+                        <h2><Link to={'/cadastro'}>Register Account</Link></h2>
+                        <h2><Link to={'/login'}>Choose Account</Link></h2>
                         <h2 className='red'>Delete Account</h2>
                     </div>
 

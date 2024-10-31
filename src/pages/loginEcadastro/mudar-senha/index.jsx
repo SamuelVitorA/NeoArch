@@ -29,14 +29,13 @@ export default function Mudar_senha() {
 
 
        return(
-        <div className='mud'>
+        <div className='tudo-individualmente'>
                  <div className="login-box">
                 <div className="top">
                    <Link to="/Main_automo"><img className="top-icon" src="./assets/images/voltar.png" alt="Voltar" /></Link>
-                        <h1> reset account Password </h1>
+                        <h1>Type your new password</h1>
                     </div>
                 <div className="middle">
-                    <p>enter a new password for </p>
                     <div className="inputs">
                     <img className="login-icons" src="./assets/images/cadeado.png" alt="cadeado" />
                         <input className="input"
@@ -50,12 +49,12 @@ export default function Mudar_senha() {
                         <img className="login-icons" src="./assets/images/cadeado.png" alt="cadeado" />
                         <input className="input"
                             type="password"
-                            placeholder="confirm password"
+                            placeholder="Confirm password"
                             value={pswc}
                             onChange={e => setPSWC(e.target.value)}
                         />
                     </div>
-                    <button className="button-login" onClick={trocar}>Trocar</button>
+                    <button className="button-login" onClick={trocar}>Change Password</button>
                     
                 </div>
 
@@ -64,4 +63,3 @@ export default function Mudar_senha() {
         )
     
     }
-
