@@ -1,4 +1,5 @@
 import './index.scss';
+
 import { useState} from "react";
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
@@ -29,9 +30,7 @@ export default function Esqueceu_senha() {
                    <div className="login-box">
                 <div className="top">
                    <Link to="/login"><img className="top-icon" src="./assets/images/voltar.png" alt="Voltar" /></Link>
-                        <div className="h1-box">
-                            <h1>Password reset</h1>
-                        </div>
+                        <h1>Password reset</h1>
                     </div>
                 <div className="middle">
                     <div className="inputs">
@@ -44,10 +43,10 @@ export default function Esqueceu_senha() {
                         />
                     </div>
                   
-                    <button className="button-login" onClick={confirmar}>confirm</button>
+                    <button className="button-login" onClick={confirmar} >confirmar</button>
                     
                 </div>
-                <div className="send-email">
+                <div className="forgot-password">
                     <Link to>We will send you a password reset email</Link>
                 </div>
 

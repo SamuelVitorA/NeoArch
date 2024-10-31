@@ -12,7 +12,7 @@ text-decoration: none;
     justify-content: center;
     align-items: center;
     width: 40vw;
-    height: 61vh;
+    height: 63vh;
     border-radius: 50px;
     box-shadow: 0px 0px 1px  #030303;
     a{
@@ -25,15 +25,10 @@ text-decoration: none;
         flex-direction: row;
         align-items:center;
         width:350px;
-        gap: 5vw;
-        height: 15vh;
+        height: 100px;
         padding-right: 80px;
         margin-bottom: 4.75vh;
         margin-right: 8vw;
-        
-        h1{
-                font-size: 50px;
-            }
         
         .top-icon{
             width: 50px;
@@ -51,9 +46,9 @@ text-decoration: none;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-bottom: 4vh;
+        padding-bottom: 5vh;
         width: 30vw;
-        height: 25vh;
+        height: 37vh;
         .inputs{
             display: flex;
             align-items: center;
@@ -94,10 +89,10 @@ text-decoration: none;
         }
 
     }
-    .send-email{
+    .forgot-password{
         border-bottom: 1px solid #A2AEBB;
-        width: 20vw;
-        
+        width: 11vw;
+        margin: 0vw 0vw 0vw 22vw;
     }
     
 }}

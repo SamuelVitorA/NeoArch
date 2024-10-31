@@ -26,8 +26,7 @@ export default function Main_empresa() {
 
                 <main>
                     <div className="middle-top">
-                        <div className='comb'>
-                        <div className='mt1'>
+                        <div>
                             <h1>Get a beautiful website</h1>
 
                             <h2>Tired of those boring and not rentable websites, try our services now and make the money you have ever wanted to make.</h2>
@@ -41,10 +40,6 @@ export default function Main_empresa() {
                             <div className="schedule">
                                 <a href="#">Learn more</a>
                             </div>
-                        </div>
-                        </div>
-                        <div className='celular'>
-                            <img src="/assets/images/celular.png" alt="" />
                         </div>
                     </div>
 

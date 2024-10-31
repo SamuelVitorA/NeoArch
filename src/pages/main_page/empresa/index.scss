@@ -16,7 +16,6 @@
         justify-content: space-between;
         padding: 0px 20px 20px 20px;
         width: 100vw;
-       
         
         img {
             height: 9vh;
@@ -43,28 +42,9 @@
         }
     }
 
-     main {
+    .main {
         display: flex;
-        flex-direction: column;
-        margin: 0px 50px;
-        
-        .middle-top{
-            display: flex;
-            flex-direction: row;
-            
-            
-            .comb{
 
-
-                .mt1{
-
-
-                 h1{
-                    font-size: 80px
-                 }
-                }
-            }
-        }
     }
 }
 
