@@ -11,13 +11,20 @@ export default function Cadastro() {
         const [senha, setSenha] = useState("");
         const navegacao = useNavigate();
 
-        function cadastrar(){
-            let data = {
-                email: email,
-                senha: senha
+        async function cadastrar() {
+            try {
+                const data = { email: email, senha: senha };
+                
+                const resposta = await axios.post("http://localhost:1234/usuario", data);
+    
+                const token = resposta.data.token;
+                localStorage.setItem('USUARIO', token);
+    
+                navegacao('/login');
+            } catch (err) {
+                console.error("Erro ao cadastrar:", err);
+                alert("Erro ao cadastrar o usuário");
             }
-            let resposta = axios.post("http://localhost:1234/registro", data)
-            navegacao('/login')
         }
     
     return(

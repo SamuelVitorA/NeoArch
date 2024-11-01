@@ -9,23 +9,26 @@ export default function Login() {
 
     let navigate = useNavigate();
 
-    async function logar() {
-        let data = {
-            email: email,
-            senha: psw
-        };
-        
+    async function entrar() {
         try {
-            let resposta = await axios.post("http://localhost:1234/logar", data);
-            
-            if (resposta.data.senha === psw && resposta.data.email === email) {
-                navigate('/analitic');
+            const usuario = {
+                email: email,
+                senha: psw,
+            };
+        
+            const url = `http://localhost:1234/entrar/`;
+            let resp = await axios.post(url, usuario);
+        
+            if (resp.data.erro) {
+                alert(resp.data.erro);
             } else {
-                alert('Email ou senha incorreta');
+                const token = resp.data.token;
+                localStorage.setItem('USUARIO', token);
+                navigate('/config');
             }
         } catch (error) {
-            console.error("Erro ao logar:", error);
-            alert('Ocorreu um erro ao tentar logar. Verifique sua conexão.');
+            console.error("Erro ao tentar login:", error);
+            alert("Erro ao tentar login.");
         }
     }
 
@@ -57,7 +60,7 @@ export default function Login() {
                             onChange={e => setPSW(e.target.value)}
                         />
                     </div>
-                    <button className="button-login" onClick={logar}>Login</button>
+                    <button className="button-login" onClick={entrar}>Login</button>
                 </div>
                 <div className="forgot-password">
                     <Link to='/Esqueceu_senha'>forgot your password?</Link>
