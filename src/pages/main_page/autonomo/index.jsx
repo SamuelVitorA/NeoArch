@@ -18,7 +18,13 @@ export default function Main_automo(){
                     </div>
                 </header>
                 <section className="section1">
-                    <img src='/assets/images/fundo_main.png' alt="F" />
+                    <div className="video-background">
+                        <video autoPlay loop muted>
+                        <source src="./assets/videos/videoteste.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+                    
+
                 </section>
             </div>
         )
