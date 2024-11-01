@@ -31,12 +31,13 @@ export default function Config() {
         setEmail(resposta.data.email)
         setTelefone(resposta.data.telefone)
         setImagem(resposta.data.foto)
-        return resposta.data
+        console.log(resposta)
     }
 
     useEffect(() => {
         verificaruser()
-    }, [])
+        
+    },  [])
 
     function mudartema() {
         setTema(!tema)
@@ -54,6 +55,8 @@ export default function Config() {
         }
         let resposta = axios.put(`http://localhost:1234/alterar?id=1`, data)
         alert('sucesso')
+
+        
         
     }
 
@@ -86,7 +89,7 @@ export default function Config() {
                 <div className='foto'>
 
                 <div>
-                    <img src={imagem} alt="" />
+                    <img id='inimigo' src={imagem} alt="" />
                     <input type="file" accept="*image/*" id="id-insert" onChange={alterarImagem}></input>
                 </div>
                     
@@ -99,19 +102,19 @@ export default function Config() {
                         <coluna_esq>
                             <div className='ab'>
                                 <h1>Name</h1>
-                                <input type="text" placeholder='samuel' value={nome} onChange={(e) => setNome(e.target.value)} />
+                                <input type="text" placeholder='type your name' value={nome} onChange={(e) => setNome(e.target.value)} />
                             </div>
 
                             <div className='ab'>
                                 <h1>Password</h1>
 
-                                <input type="text" placeholder='1234...' value={senha} onChange={(e) => setSenha(e.target.value)} />
+                                <input type="text" placeholder='@Abc1234...' value={senha} onChange={(e) => setSenha(e.target.value)} />
                             </div>
 
                             <div className='ab'>
                                 <h1>E-mail</h1>
 
-                                <input type="text" placeholder='samuelvitor@gmail.com' value={email} onChange={(e) => setEmail(e.target.value)} />
+                                <input type="text" placeholder='example@gmail.com' value={email} onChange={(e) => setEmail(e.target.value)} />
                             </div>
                         </coluna_esq>
 
