@@ -29,11 +29,11 @@ export default function Main_automo(){
                 </div>
             </section>            
 
-            <section_2>
+            <section className='section2'>
                 <h1>Testando meu carogo</h1>
 
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate aliquid odit nostrum nemo fugiat maxime, consequuntur aspernatur, illum ea, beatae quod fuga quia molestias est alias laboriosam ipsam doloribus veniam?</p>
-            </section_2>
+            </section>
         </div>
 
     )

@@ -1,0 +1,48 @@
+.card-slider {
+    position: relative;
+    width: 100%;
+    max-width: 600px; // Largura máxima do card
+    overflow: hidden; // Oculta imagens que estão fora do card
+    border-radius: 10px; // Arredondamento dos cantos
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); // Sombra do card
+
+    .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out; // Transição suave
+    }
+
+    .slide {
+        min-width: 100%; // Cada slide ocupa 100% do card
+        overflow: hidden;
+        position: relative;
+
+        img {
+            width: 100%; // Imagem ocupa toda a largura do slide
+            height: auto; // Mantém a proporção da imagem
+            border-radius: 10px; // Arredondamento dos cantos da imagem
+        }
+    }
+
+    .controls {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+
+        button {
+            background-color: rgba(255, 255, 255, 0.7); // Fundo semi-transparente
+            border: none;
+            border-radius: 50%; // Botões circulares
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 1); // Fundo totalmente branco ao passar o mouse
+            }
+        }
+    }
+}
