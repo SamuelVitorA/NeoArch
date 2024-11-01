@@ -10,9 +10,7 @@
     a{
         text-decoration: none;
         color:#eeeded;
-    }
-
-    
+    }    
 
     header{
         z-index: 1;
@@ -82,6 +80,7 @@
             height: 87vh;
             overflow: hidden;
             z-index: -1;
+
             video {
                 min-width: 100%;
                 min-height: 100%;
@@ -91,11 +90,20 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-              }
+            }
               
-          } 
+        } 
         
 
     }   
+
+    section_2 {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+
+        justify-content: flex-end;
+    }
+    
    
 }
