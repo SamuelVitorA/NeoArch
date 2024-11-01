@@ -1,10 +1,12 @@
 import "./index.scss"
 
+import { useNavigate } from "react-router-dom";
+
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function SideBar(prop) {
-
+  const navigate = useNavigate()
   const [aberto, setAberto] = useState(true);
   const [imagem, setImagem] = useState('/assets/images/cadeado.png')
 
@@ -16,6 +18,10 @@ export default function SideBar(prop) {
 
   function abrir_fechar() {
     setAberto(!aberto);
+  }
+  function sair() {
+    localStorage.removeItem("USUARIO")
+    navigate("/login")
   }
 
   return (
@@ -48,7 +54,7 @@ export default function SideBar(prop) {
 
           <ul className="exit">
             <li>
-              <Link to="/">Exit Account</Link>
+              <button onClick={sair}>Exit Account</button>
             </li>
           </ul>
         </div>
