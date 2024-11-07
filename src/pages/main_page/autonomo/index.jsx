@@ -27,12 +27,18 @@ export default function Main_automo(){
                         <source src="./assets/videos/videoooo.mp4" type="video/mp4" />
                     </video>
                 </div>
+                <div className='content'>
+                    <div className='h1-box'>
+                    <h1>Let us help you feel welcome getting inside home</h1>
+                    </div>
+                
+
+                </div>
+                
             </section>            
 
             <section className='section2'>
-                <h1>Testando meu carogo</h1>
-
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate aliquid odit nostrum nemo fugiat maxime, consequuntur aspernatur, illum ea, beatae quod fuga quia molestias est alias laboriosam ipsam doloribus veniam?</p>
+                
             </section>
         </div>
 
