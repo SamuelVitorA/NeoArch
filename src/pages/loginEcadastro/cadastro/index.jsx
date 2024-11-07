@@ -1,6 +1,5 @@
 import './index.scss';
 
-
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
@@ -13,14 +12,18 @@ export default function Cadastro() {
 
         async function cadastrar() {
             try {
+                const token = localStorage.getItem('USUARIO');
+
                 const data = { email: email, senha: senha };
                 
-                const resposta = await axios.post("http://localhost:1234/usuario", data);
-    
-                const token = resposta.data.token;
-                localStorage.setItem('USUARIO', token);
-    
-                navegacao('/login');
+                const resposta = await axios.post(`http://localhost:1234/register?x-access-token=${token}`, data);
+                if (!resposta.data.error) {
+                    navegacao('/login');
+                    console.log(resposta);
+                }
+                else {
+                    alert("Email já cadastrado ou dados inválidos");
+                }
             } catch (err) {
                 console.error("Erro ao cadastrar:", err);
                 alert("Erro ao cadastrar o usuário");

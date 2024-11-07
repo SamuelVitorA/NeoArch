@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 import Home from "./pages/ADM/home";
-import Analitic from "./pages/ADM/analitco";
+import Analitics from "./pages/ADM/analitco/index.jsx";
 import Pedidos from "./pages/ADM/pedidos";
 import Config from "./pages/ADM/configuracoes";
 import Login from "./pages/loginEcadastro/login";
@@ -20,7 +20,7 @@ export default function Rotas(){
             <Routes>
                 <Route path="/" element={ < Home /> } />
 
-                <Route path="/analitic" element={ < Analitic /> } />
+                <Route path="/analitic" element={ < Analitics /> } />
 
                 <Route path="/pedidos" element={ < Pedidos /> } />
 

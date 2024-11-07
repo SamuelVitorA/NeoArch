@@ -16,13 +16,15 @@ export default function Login() {
                 senha: psw,
             };
         
-            const url = `http://localhost:1234/entrar/`;
+            const url = `http://localhost:1234/login`;
             let resp = await axios.post(url, usuario);
-        
-            if (resp.data.erro) {
-                alert(resp.data.erro);
+            console.log(resp, "SDADSADS");
+            
+            if (resp.data.error) {
+                alert(resp.data.error);
             } else {
                 const token = resp.data.token;
+                console.log(token);
                 localStorage.setItem('USUARIO', token);
                 navigate('/config');
             }
