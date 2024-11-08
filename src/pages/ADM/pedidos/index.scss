@@ -1,3 +1,75 @@
+.card {
+    width: 300px;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #0000001a;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    margin: 20px;
+  
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      font-weight: bold;
+      
+    }
+  
+    .numero {
+      font-size: 14px;
+      color: #000;
+    }
+  
+    .sla {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #555;
+  
+      .preço {
+        font-weight: bold;
+        color: #333;
+      }
+    }
+  
+    .linhaf {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+  
+      .contato {
+        font-size: 14px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+  
+       
+      }
+  
+      .icons {
+        display: flex;
+        gap: 8px;
+        font-size: 18px;
+  
+        .edit,
+        .lixeira {
+          cursor: pointer;
+          color: #888;
+  
+          &:hover {
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+
+  li {
+    list-style-type: none;
+  }
+
 .pedido-mae{
     display: flex;
     flex-direction: column;

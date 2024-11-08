@@ -7,6 +7,8 @@ export default function Pedidos() {
     const [token, setToken] = useState(null);
     const [adicionando, setAdicionando] = useState(false);
     const [barraVisivel, setBarraVisivel] = useState(true);
+   
+
     const [dadosFormulario, setDadosFormulario] = useState({
         nome: '',
         valor: '',
@@ -19,7 +21,7 @@ export default function Pedidos() {
     });
     const [pedidos, setPedidos] = useState([]);
     const navegar = useNavigate();
-
+    
     const alternarAdicionarPedido = () => {
         setAdicionando(!adicionando);
         setBarraVisivel(!barraVisivel);
@@ -34,15 +36,15 @@ export default function Pedidos() {
             email2: ''
         });
     };
-
+    
     const alterarEntrada = (e) => {
         const { name, value } = e.target;
         setDadosFormulario((dadosAnteriores) => ({ ...dadosAnteriores, [name]: value }));
     };
-
+    
     const salvarPedido = async () => {
         const formatarData = (data) => data ? new Date(data).toISOString().split('T')[0] : null;
-
+        
         const novoPedido = {
             nome: dadosFormulario.nome.trim(),
             preco: parseFloat(dadosFormulario.valor) || 0,
@@ -68,6 +70,14 @@ export default function Pedidos() {
         }
     };
 
+    const [apagar, setApagar] = useState(true)
+    const [abrir, setAbrir] = useState(true)
+
+    async function apagarl(id){
+        const resposta = await axios.delete(`http://localhost:1234/orders/delete?x-access-token=${token}&id=${}`);
+        
+    }
+    
     const carregarPedidos = async (token) => {
         try {
             const resposta = await axios.get(`http://localhost:1234/orders/list?x-access-token=${token}`);
@@ -98,16 +108,33 @@ export default function Pedidos() {
     }, [navegar]);
 
     const PedidoCard = ({ pedido }) => (
-        <div className="pedido-card">
-            <h2>{pedido.nome}</h2>
-            <p>Preço: R$ {pedido.preco}</p>
-            <p>Data Início: {formatarDataParaExibicao(pedido.comeco)}</p>
-            <p>Data Fim: {formatarDataParaExibicao(pedido.fim)}</p>
-            <p>Telefone: {pedido.telefone}</p>
-            {pedido.telefone2 && <p>Telefone Opcional: {pedido.telefone2}</p>}
-            <p>Email: {pedido.email}</p>
-            {pedido.email2 && <p>Email Opcional: {pedido.email2}</p>}
+        <div>
+
+
+        {apagar === true && 
+
+
+        <div className="card">
+        <div className="header">
+          <h2>{pedido.nome}</h2>
+          <span className="numero">nº {pedido.id_agendamento}</span>
         </div>
+        <div className="sla">
+          <p className="preço">Budget: ${pedido.preco}</p>
+          <p>Start date:  {formatarDataParaExibicao(pedido.comeco)}</p>
+          <p>Order deadline:  {formatarDataParaExibicao(pedido.fim)}</p>
+        </div>
+        <div className="linhaf">
+          <button className="contato" onClick={abrir}>Contact ▼</button>
+          <div className="icons">
+            <img className='edit' src="./assets/images/lapis.png" alt="" />
+            <img className='lixeira' src="./assets/images/vector.png" onClick={apagarl()} alt=""  />
+          </div>
+        </div>
+      </div>
+        }
+
+    </div>
     );
 
     return (

@@ -26,7 +26,7 @@ export default function Login() {
                 const token = resp.data.token;
                 console.log(token);
                 localStorage.setItem('USUARIO', token);
-                navigate('/config');
+                navigate('/analitics');
             }
         } catch (error) {
             console.error("Erro ao tentar login:", error);
