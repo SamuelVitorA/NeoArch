@@ -53,7 +53,7 @@ export default function Config() {
 
     return (
         <div className='config'>
-            <SideBar />
+            <SideBar opa="2"/>
             <div className='div'>
                 <h1>Personal Information</h1>
                 <hr />
