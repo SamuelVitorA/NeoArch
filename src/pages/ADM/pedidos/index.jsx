@@ -74,7 +74,7 @@ export default function Pedidos() {
     const [abrir, setAbrir] = useState(true)
 
     async function apagarl(id){
-        const resposta = await axios.delete(`http://localhost:1234/orders/delete?x-access-token=${token}&id=${}`);
+        const resposta = await axios.delete(`http://localhost:1234/orders/delete?x-access-token=${token}&id=`);
         
     }
     

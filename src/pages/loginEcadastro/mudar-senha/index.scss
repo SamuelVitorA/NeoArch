@@ -110,3 +110,42 @@
         }
     }
 }
+
+@media (max-width: 650px) {
+    .tudo-individualmente {
+        width: 100vw;
+        .login-box {
+            height: 500px;
+            width: 300px;
+            align-items: center;
+            
+            .top{    
+                align-items: start;
+                text-align: center;
+
+                .top-icon {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                h1{
+                    font-size: 30px;
+                }
+            }
+
+            .middle{
+
+
+                .inputs{
+                    width: 250px;
+                    height: 50px;
+                    font-size: 20px;
+
+                    input{
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}

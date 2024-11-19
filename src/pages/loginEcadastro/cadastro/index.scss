@@ -110,3 +110,36 @@
         }
     }
 }
+
+@media (max-width: 650px) {
+    .register {
+        .login-box {
+            height: 600px;
+            width: 300px;
+            align-items: center;
+            
+            .top{    
+                align-items: start;
+                text-align: center;
+
+                h1{
+                    font-size: 40px;
+                }
+            }
+
+            .middle{
+
+
+                .inputs{
+                    width: 250px;
+                    height: 50px;
+                    font-size: 20px;
+
+                    input{
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
