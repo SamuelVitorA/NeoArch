@@ -383,7 +383,7 @@ export default function Pedidos() {
                                 type="number"
                                 name="valor"
                                 placeholder="Digite o orçamento"
-                                value={dadosFormulario.valor}
+                                value={'dadosFormulario'.valor}
                                 onChange={alterarEntrada}
                                 required
                             />
@@ -394,7 +394,7 @@ export default function Pedidos() {
                                 className="a"
                                 type="date"
                                 name="datai"
-                                value={dadosFormulario.datai}
+                                value={'dadosFormulario'.datai}
                                 onChange={alterarEntrada}
                                 required
                             />
