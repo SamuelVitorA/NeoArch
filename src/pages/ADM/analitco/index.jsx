@@ -119,7 +119,7 @@ export default function Analitics() {
       <SideBar opa="0" />
       <div className='conteudo'>
         <section className="filtros">
-          <label htmlFor="ano">Selecione o Ano:</label>
+          <label htmlFor="ano">Select year:</label>
           <select id="ano" value={anoSelecionado} onChange={(e) => setAnoSelecionado(parseInt(e.target.value))}>
             {anosDisponiveis.map((ano) => <option key={ano} value={ano}>{ano}</option>)}
           </select>

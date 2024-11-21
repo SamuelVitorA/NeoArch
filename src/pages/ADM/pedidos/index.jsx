@@ -289,13 +289,13 @@ export default function Pedidos() {
                         <img src="./assets/images/magnifying-glass 1.png" alt="sla" />
                         <input
                             type="text"
-                            placeholder="Pesquise qualquer coisa"
+                            placeholder="Search"
                             value={pesquisa}
                             onChange={(e) => setPesquisa(e.target.value)}
                         />
                     </div>
                     <button className="limpar-filtros" onClick={limparFiltros}>
-                        Limpar Filtros
+                        Clean filters
                     </button>
                     <button className="adicionar" onClick={alternarAdicionarPedido}>
                         <span>+</span>
@@ -308,16 +308,16 @@ export default function Pedidos() {
                             onChange={(e) => setOrdenacao(e.target.value)}
                             value={ordenacao}
                         >
-                            <option value="">Ordenar</option>
+                            <option value="">Order by</option>
                             {filtroAtivo === 'Name' ? (
                                 <>
-                                    <option value="alfabetica">Alfabética</option>
-                                    <option value="reversa">Reversa</option>
+                                    <option value="alfabetica">Alphabetical order</option>
+                                    <option value="reversa">reverse</option>
                                 </>
                             ) : (
                                 <>
-                                    <option value="crescente">Crescente</option>
-                                    <option value="decrescente">Decrescente</option>
+                                    <option value="crescente">Growing</option>
+                                    <option value="decrescente">Descending</option>
                                 </>
                             )}
                         </select>
@@ -326,7 +326,7 @@ export default function Pedidos() {
                         <div className="filtro-menu">
                             {filtroAtivo === 'Date' && (
                                 <button onClick={() => setTipoData(tipoData === 'comeco' ? 'fim' : 'comeco')}>
-                                    Alternar para {tipoData === 'comeco' ? 'Data Final' : 'Data de Início'}
+                                    Switch to {tipoData === 'comeco' ? 'end date' : 'start date'}
                                 </button>
                             )}
                             <div className="slider">
@@ -365,7 +365,7 @@ export default function Pedidos() {
                 <div className="cardP">
                     <div className="esq">
                         <div>
-                            <h1>Nome</h1>
+                            <h1>Name</h1>
                             <input
                                 className="a"
                                 type="text"
@@ -377,7 +377,7 @@ export default function Pedidos() {
                             />
                         </div>
                         <div>
-                            <h1>Orçamento</h1>
+                            <h1>Price</h1>
                             <input
                                 className="a"
                                 type="number"
@@ -389,7 +389,7 @@ export default function Pedidos() {
                             />
                         </div>
                         <div>
-                            <h1>Data de início</h1>
+                            <h1>Start date</h1>
                             <input
                                 className="a"
                                 type="date"
@@ -400,7 +400,7 @@ export default function Pedidos() {
                             />
                         </div>
                         <div>
-                            <h1>Data de fim</h1>
+                            <h1>End date</h1>
                             <input
                                 className="a"
                                 type="date"
@@ -413,7 +413,7 @@ export default function Pedidos() {
                     </div>
                     <div className="dir">
                         <div>
-                            <h1>Telefone</h1>
+                            <h1>Telephone</h1>
                             <input
                                 className="a"
                                 type="tel"
@@ -437,7 +437,7 @@ export default function Pedidos() {
                             />
                         </div>
                         <div>
-                            <h1>Telefone opcional</h1>
+                            <h1>2° phone number</h1>
                             <input
                                 className="a"
                                 type="tel"
@@ -448,7 +448,7 @@ export default function Pedidos() {
                             />
                         </div>
                         <div>
-                            <h1>Email opcional</h1>
+                            <h1>2° Email</h1>
                             <input
                                 className="a"
                                 type="email"
@@ -460,8 +460,8 @@ export default function Pedidos() {
                         </div>
                     </div>
                     <div className="botao">
-                        <h3 onClick={salvarPedido}>Salvar</h3>
-                        <h3 className="cancel" onClick={alternarAdicionarPedido}>Cancelar</h3>
+                        <h3 onClick={salvarPedido}>Save</h3>
+                        <h3 className="cancel" onClick={alternarAdicionarPedido}>Cancel</h3>
                     </div>
                 </div>
             )}
@@ -510,10 +510,10 @@ export default function Pedidos() {
                                 />
                                 <div className="edit_actions">
                                     <button onClick={() => salvarEdicao(pedido.id_agendamento)}>
-                                        Confirmar
+                                        Confirm
                                     </button>
                                     <button onClick={cancelarEdicao}>
-                                        Cancelar
+                                        Cancel
                                     </button>
                                 </div>
                             </div>
