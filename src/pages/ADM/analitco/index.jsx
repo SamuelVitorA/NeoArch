@@ -116,61 +116,63 @@ export default function Analitics() {
 
   return (
     <div className="painel">
-      <SideBar opa="0"/>
-      <section className="filtros">
-        <label htmlFor="ano">Selecione o Ano:</label>
-        <select id="ano" value={anoSelecionado} onChange={(e) => setAnoSelecionado(parseInt(e.target.value))}>
-          {anosDisponiveis.map((ano) => <option key={ano} value={ano}>{ano}</option>)}
-        </select>
-      </section>
+      <SideBar opa="0" />
+      <div className='conteudo'>
+        <section className="filtros">
+          <label htmlFor="ano">Selecione o Ano:</label>
+          <select id="ano" value={anoSelecionado} onChange={(e) => setAnoSelecionado(parseInt(e.target.value))}>
+            {anosDisponiveis.map((ano) => <option key={ano} value={ano}>{ano}</option>)}
+          </select>
+        </section>
 
-      <section className="info">
-        <div className={`card ${graficoSelecionado === 'lucro' ? 'chosen' : ''}`} onClick={() => alterarGrafico('lucro')}>
-          <span>Total earned</span>
-          <h2>R$ {totalLucro.toLocaleString('english', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h2>
-          <small className={classVariacao(variacaoLucro)}>
-            {variacaoLucro.toFixed(2)}% per/mth
-          </small>
-        </div>
+        <section className="info">
+          <div className={`card ${graficoSelecionado === 'lucro' ? 'chosen' : ''}`} onClick={() => alterarGrafico('lucro')}>
+            <span>Total earned</span>
+            <h2>R$ {totalLucro.toLocaleString('english', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h2>
+            <small className={classVariacao(variacaoLucro)}>
+              {variacaoLucro.toFixed(2)}% per/mth
+            </small>
+          </div>
 
-        <div className={`card ${graficoSelecionado === 'pedidos' ? 'chosen' : ''}`} onClick={() => alterarGrafico('pedidos')}>
-          <span>Total orders</span>
-          <h2>{totalPedidos}</h2>
-          <small className={classVariacao(variacaoPedidos)}>
-            {variacaoPedidos.toFixed(2)}% per/mth
-          </small>
-        </div>
-        
-        <div className={`card ${graficoSelecionado === 'clientes' ? 'chosen' : ''}`} onClick={() => alterarGrafico('clientes')}>
-          <span>Total customers</span>
-          <h2>{totalClientes}</h2>
-          <small className={classVariacao(variacaoClientes)}>
-            {variacaoClientes.toFixed(2)}% per/mth
-          </small>
-        </div>
-      </section>
+          <div className={`card ${graficoSelecionado === 'pedidos' ? 'chosen' : ''}`} onClick={() => alterarGrafico('pedidos')}>
+            <span>Total orders</span>
+            <h2>{totalPedidos}</h2>
+            <small className={classVariacao(variacaoPedidos)}>
+              {variacaoPedidos.toFixed(2)}% per/mth
+            </small>
+          </div>
 
-      <section className="grafico">
-        <h2>{graficoSelecionado === 'lucro' ? 'Total earned' : graficoSelecionado === 'pedidos' ? 'Total orders' : 'Total customers'}</h2>
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={obterDadosGrafico()} margin={{ top: 20, right: 30, left: 40, bottom: 60 }}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis
-              dataKey="mes"
-              interval={0}
-              tick={{ fontSize: 12 }}
-              angle={0}
-              textAnchor="middle"
-            />
-            <YAxis tickFormatter={(value) => graficoSelecionado === 'lucro' ? `R$ ${value}` : value} />
-            <Tooltip
-              labelFormatter={(label) => `Mês: ${label}`}
-              formatter={(value) => [`R$ ${value}`, graficoSelecionado === 'lucro' ? 'Lucro' : graficoSelecionado === 'pedidos' ? 'Pedidos' : 'Clientes']}
-            />
-            <Bar dataKey="valor" fill="#000" />
-          </BarChart>
-        </ResponsiveContainer>
-      </section>
+          <div className={`card ${graficoSelecionado === 'clientes' ? 'chosen' : ''}`} onClick={() => alterarGrafico('clientes')}>
+            <span>Total customers</span>
+            <h2>{totalClientes}</h2>
+            <small className={classVariacao(variacaoClientes)}>
+              {variacaoClientes.toFixed(2)}% per/mth
+            </small>
+          </div>
+        </section>
+
+        <section className="grafico">
+          <h2>{graficoSelecionado === 'lucro' ? 'Total earned' : graficoSelecionado === 'pedidos' ? 'Total orders' : 'Total customers'}</h2>
+          <ResponsiveContainer width="100%" height="80%">
+            <BarChart data={obterDadosGrafico()} margin={{ top: 0, right: 20, left: -20, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis
+                dataKey="mes"
+                interval={0}
+                tick={{ fontSize: 12 }}
+                angle={0}
+                textAnchor="middle"
+              />
+              <YAxis tickFormatter={(value) => graficoSelecionado === 'lucro' ? `R$ ${value}` : value} />
+              <Tooltip
+                labelFormatter={(label) => `Mês: ${label}`}
+                formatter={(value) => [`R$ ${value}`, graficoSelecionado === 'lucro' ? 'Lucro' : graficoSelecionado === 'pedidos' ? 'Pedidos' : 'Clientes']}
+              />
+              <Bar dataKey="valor" fill="#000" />
+            </BarChart>
+          </ResponsiveContainer>
+        </section>
+      </div>
     </div>
   );
 }
