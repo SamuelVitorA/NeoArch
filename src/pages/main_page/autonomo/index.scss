@@ -57,7 +57,6 @@
             justify-content: center;
             align-items: center;
             color: #FF9B6C;
-            width: 220px;
             height: 25px;
             border-bottom: 1px solid #FF9B6C;
             margin: 0px 40px 0px 0px;
@@ -90,36 +89,70 @@
                 left: 50%;
                 transform: translate(-50%, -50%);
             }
-              
-        } 
-        .content{
-            .h1-box{
-                h1 {
-                    position: absolute;  /* Alterado para absolute */
-                    top: 30%;  /* Ajuste a posição vertical */
-                    left: 30%;  /* Ajuste a posição horizontal */
-                    transform: translate(-50%, -50%);  /* Centraliza o texto */
-                    color: white;  /* Ou qualquer outra cor */
-                    z-index: 1;  
-                    font-size: 4rem;  
-                    text-align: center;  
-                }
-            }
-            
-        }
-        
 
-    }   
+        } 
+        .content-section1{
+            flex-direction: column;
+            display: flex;
+            align-items:end;
+            justify-content:end;
+            width: 430  px;
+
+            z-index: 2;
+            position: absolute;
+            top: 26vh; 
+            left: 5vw;
+            .h1-box{
+                width:430px;
+                color: #ffffff; 
+                font-size: 3.5rem;
+                text-align: center;
+            }
+            .h3-box{
+                text-decoration:underline;
+                text-align: center;
+                color:#FF9B6C;
+                font-size: 1.5rem;
+                font-weight: 400;
+                letter-spacing: 3px;
+            }
+
+        }
+
+
+    }
 
     .section2 {
         height: 87vh;
         width: 100%;
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         height: 100vh;
         position:relative ;
-
+        background-color: #1d0024;
+        .content-section2{
+            display: flex;
+            justify-content: space-between;
+            height: 600px;
+            width:1200px;
+            color: #eeeded;
+            h1{
+                font-size: 50px;
+            }
+            .pt1-content{
+                display: flex;
+                justify-content:right;
+            } 
+            
+            .navigatept1{
+                color: #FF9B6C;
+                border-bottom: 1px solid #FF9B6C;
         
+            }
+        }
+
     }
     
    
