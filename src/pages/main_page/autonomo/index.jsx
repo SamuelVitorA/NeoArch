@@ -27,17 +27,30 @@ export default function Main_automo(){
                         <source src="./assets/videos/videoooo.mp4" type="video/mp4" />
                     </video>
                 </div>
-                <div className='content'>
-                    <div className='h1-box'>
-                    <h1>Let us help you feel welcome getting inside home</h1>
-                    </div>
-                
+                <div className='content-section1'>
 
+                    <h1 className='h1-box'>Let us help you feel welcome getting inside home</h1>
+                    <h3 className='h3-box'>Get a conference</h3>
                 </div>
                 
             </section>            
 
             <section className='section2'>
+                <div className='content-section2'>
+                    <div className='pt1content'>
+                        <h1 className="text">Have a inside that get everyone impressive </h1>
+                        <Link className='navigatept1'><h2 >Get a conference</h2></Link>
+                    </div>
+                    <div className='pt2content'>
+                        <h1>What will you get</h1>
+                        <ul>
+                            <li>A good looking interior</li>
+                            <li>More compliments about your house</li>
+                            <li>A relief when arriving home</li>
+                        </ul>
+                    </div>
+            
+                </div>
                 
             </section>
         </div>
