@@ -16,7 +16,7 @@ export default function Login() {
                 senha: psw,
             };
         
-            const url = `http://localhost:1234/login`;
+            const url = `http://localhost:5022/login`;
             let resp = await axios.post(url, usuario);
             console.log(resp, "SDADSADS");
             

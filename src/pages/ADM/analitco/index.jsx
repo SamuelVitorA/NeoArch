@@ -18,7 +18,7 @@ export default function Analitics() {
 
   async function buscarDados() {
     try {
-      const resposta = await axios.get(`http://localhost:1234/orders/list?x-access-token=${token}`);
+      const resposta = await axios.get(`http://localhost:5022/orders/list?x-access-token=${token}`);
       const dados = resposta.data;
       if (!dados || dados.length === 0) return console.warn("Nenhum pedido encontrado");
 

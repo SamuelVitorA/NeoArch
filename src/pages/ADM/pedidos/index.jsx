@@ -49,7 +49,7 @@ export default function Pedidos() {
             };
 
             const resposta = await axios.put(
-                `http://localhost:1234/orders/update?x-access-token=${token}&id=${id}`,
+                `http://localhost:5022/orders/update?x-access-token=${token}&id=${id}`,
                 pedidoFormatado
             );
             console.log(resposta);
@@ -85,7 +85,7 @@ export default function Pedidos() {
 
     const carregarPedidos = async (tokenAtual) => {
         try {
-            const resposta = await axios.get(`http://localhost:1234/orders/list?x-access-token=${tokenAtual}`);
+            const resposta = await axios.get(`http://localhost:5022/orders/list?x-access-token=${tokenAtual}`);
             setPedidos(resposta.data);
             setPedidosFiltrados(resposta.data);
         } catch (error) {
@@ -206,7 +206,7 @@ export default function Pedidos() {
 
     const removerPedido = async (id) => {
         try {
-            await axios.delete(`http://localhost:1234/orders/delete?x-access-token=${token}&id=${id}`);
+            await axios.delete(`http://localhost:5022/orders/delete?x-access-token=${token}&id=${id}`);
             setPedidos(pedidos.filter((pedido) => pedido.id_agendamento !== id));
             setPedidosFiltrados(pedidosFiltrados.filter((pedido) => pedido.id_agendamento !== id));
         } catch (error) {
@@ -258,7 +258,7 @@ export default function Pedidos() {
         }
 
         try {
-            await axios.post(`http://localhost:1234/orders/create?x-access-token=${token}`, novoPedido);
+            await axios.post(`http://localhost:5022/orders/create?x-access-token=${token}`, novoPedido);
             alternarAdicionarPedido();
             await carregarPedidos(token);
         } catch (error) {

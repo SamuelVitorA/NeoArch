@@ -17,7 +17,7 @@ export default function Config() {
     const navigate = useNavigate();
 
     async function consultar(token) {
-        const url = `http://localhost:1234/info?x-access-token=${token}`;
+        const url = `http://localhost:5022/info?x-access-token=${token}`;
         let resp = await axios.post(url);
         let dados = resp.data;
         dados = dados[0];
@@ -43,7 +43,7 @@ export default function Config() {
     }, []);
 
     async function alterando() {
-        const url = `http://localhost:1234/update?x-access-token=${token}`;
+        const url = `http://localhost:5022/update?x-access-token=${token}`;
         let data = {nome: nome, email: email, senha: senha, telefone: telefone, cpf: cpf, endereco: endereco}
 
         const resp = await axios.put(url, data);
