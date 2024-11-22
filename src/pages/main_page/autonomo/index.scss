@@ -1,82 +1,317 @@
 .Main {
-    width: 100vw;
-    height: 100vw;
+    width: 100%;
+    height: 100%;
+  
     .top {
-        width: 100vw;
-        height: 90vh;
-        background-image: url("Backs.jpg");
-        background-size:100% 100%;
-        background-position: top;
-        background-repeat: no-repeat;
-        header{
-            position: sticky;
+      width: 100%;
+      height: 100vh;
+      background-image: url("Backs.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+  
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        background-color: transparent;
+        transition: background-color 0.5s, padding 0.3s;
+  
+        &.sticky {
+          background-color: rgba(0, 0, 0, 0.8);
+          padding: 10px 30px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+  
+        .left {
+          display: flex;
+          align-items: center;
+  
+          img {
+            width: 120px;
+            height: auto;
+            transition: transform 0.3s;
+  
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+  
+          a {
+            margin-left: 20px;
+            color: #ffffff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: color 0.3s;
+  
+            &:hover {
+              color: #ff9b6c;
+            }
+          }
+        }
+  
+        .right {
+          .conference {
             display: flex;
-            -webkit-transition: background-color 0.5s ease-out;
-            -moz-transition: background-color 0.5s ease-out;
-            -o-transition: background-color 0.5s ease-out;
-            transition: background-color 0.5s ease-out;
-            flex-direction: row;
+            flex-direction: column;
+            align-items: flex-end;
+  
+            a {
+              font-size: 1.5rem;
+              color: #ff9b6c;
+              text-decoration: none;
+              transition: color 0.3s;
+  
+              &:hover {
+                color: #ffc1a5;
+              }
+            }
+  
+            hr {
+              width: 100%;
+              border: 1px solid #ffc1a5;
+              margin-top: 5px;
+            }
+          }
+        }
+      }
+  
+      .middle {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10% 10%;
+        width: 60%;
+        height: 100vh;
+        color: white;
+  
+        h1 {
+          font-size: 3rem;
+          font-weight: 400;
+          margin-bottom: 20px;
+        }
+  
+        .conference {
+          a {
+            font-size: 1.8rem;
+            color: #ff9b6c;
+            text-decoration: none;
+            transition: color 0.3s;
+  
+            &:hover {
+              color: #ffc1a5;
+            }
+          }
+  
+          hr {
             width: 100%;
-            top: 0;
-
-            &:hover{
-                background-color: black;
-                transition-delay: background-color 1    s ease-in;
-            }
-
-            padding: 20px;
-
-            .left {
-                width: 100%;
-                display: flex;
-                height: fit-content;
-                align-items: center;
-                a{
-                    margin-left: 2.3vw;
-                    color: #ffffff;
-                    font-family: "Kanit", sans-serif;
-                    font-weight: 200;
-                    font-size: 2vw;
-                }
-                img{
-                    width: 12vw;
-                }
-            }
-            .right{
-                width: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: end;
-                padding: 20px;
-
-
-            }
+            border: 1px solid #ffc1a5;
+            margin-top: 10px;
+          }
         }
+      }
     }
-    .middle {
-        h1{
-            color: #fff;
-            font-family: "Kanit", serif;
-            font-weight: 400;
-            line-height: 3.5vw;
-            letter-spacing: 6px;
-            font-size: 3.9vw;
-        }
-        width: 50%;
-        margin: 5% 5% 25% 5%;
-    }
-
-    .conference {
-        width: fit-content;
-        a{  
-            font-size: 2vw;
-            color: #FF9B6C;
-            font-family: "Inter", serif;
+  
+    .center {
+      display: flex;
+      flex-direction: column;
+  
+      .cta {
+        color: #fff;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 100vh;
+        background-color: #000;
+        padding: 0 5vw;
+      
+        .left {
+          max-width: 50%;
+          h1 {
+            font-size: 2.7rem;
             font-weight: 600;
-            font-style: normal;
+            line-height: 1.4;
+          }
+      
+          .conference {
+            margin-top: 1rem;
+            width: fit-content;
+      
+            a {
+              color: #ff8c42;
+              text-decoration: none;
+              font-size: 1.2rem;
+              font-weight: 500;
+            }
+      
+            hr {
+              margin-top: 0.5rem;
+              width: 100%;
+              border: none;
+              border-top: 2px solid #ff8c42;
+            }
+          }
         }
-        hr{
-            border-color: #FFC1A5
+      
+        .right {
+          max-width: 40%;
+          h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+          }
+      
+          ul {
+            list-style-type: none;
+            padding: 0;
+      
+            li {
+              margin-bottom: 0.5rem;
+              font-size: 1.2rem;
+            }
+          }
         }
+      }
+      
+
+      .services {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 30px;
+  
+        .project1,
+        .project2 {
+          width: 45%;
+          padding: 20px;
+          background: #f5f5f5;
+          border-radius: 10px;
+          text-align: center;
+  
+          h2 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+          }
+        }
+      }
+  
+      .contact {
+        margin-top: 50px;
+        text-align: center;
+  
+        h2 {
+          font-size: 2rem;
+          margin-bottom: 20px;
+        }
+  
+        form {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+  
+          input,
+          textarea {
+            width: 70%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+  
+            &:focus {
+              outline: none;
+              border-color: #000000;
+            }
+          }
+  
+          button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #000;
+            background: #fff;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+  
+            &:hover {
+              background: #000;
+                a{
+                    color: white;
+                }
+            }
+          }
+        }
+      }
     }
-}
+  
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      text-align: center;
+  
+      .socials {
+        margin-bottom: 20px;
+  
+        a {
+          margin: 0 10px;
+          display: inline-block;
+  
+          img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s;
+  
+            &:hover {
+              transform: scale(1.2);
+            }
+          }
+        }
+      }
+    }
+  
+    @media screen and (max-width: 768px) {
+      .top header {
+        padding: 10px 20px;
+  
+        .left a {
+          font-size: 1rem;
+        }
+      }
+  
+      .middle h1 {
+        font-size: 2rem;
+      }
+  
+      .center .services {
+        flex-direction: column;
+        align-items: center;
+  
+        .project1,
+        .project2 {
+          width: 90%;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  
+    @media screen and (max-width: 480px) {
+      .middle h1 {
+        font-size: 1.5rem;
+      }
+  
+      .center .services .project1,
+      .center .services .project2 {
+        width: 100%;
+      }
+  
+      .contact form input,
+      .contact form textarea {
+        width: 90%;
+      }
+    }
+  }
+  
