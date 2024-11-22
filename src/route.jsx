@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
-import Home from "./pages/ADM/home";
 import Analitics from "./pages/ADM/analitco/index.jsx";
 import Pedidos from "./pages/ADM/pedidos";
 import Config from "./pages/ADM/configuracoes";
@@ -18,7 +17,7 @@ export default function Rotas(){
     return(
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={ < Home /> } />
+                <Route path="/" element={ < Main_automo /> } />
 
                 <Route path="/analitic" element={ < Analitics /> } />
 
@@ -29,8 +28,6 @@ export default function Rotas(){
                 <Route path="/login" element={ < Login /> } />
 
                 <Route path="/cadastro" element={ < Cadastro /> } />
-
-                <Route path="/Main_automo" element={ < Main_automo />} />
 
                 <Route path="/Main_empresa" element={ < Main_empresa /> } />
 

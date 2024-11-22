@@ -38,7 +38,7 @@ export default function Login() {
         <div className="login">
             <div className="login-box">
                 <div className="top">
-                    <Link to="/Main_automo">
+                    <Link to="/">
                         <img className="top-icon" src="./assets/images/voltar.png" alt="Voltar" />
                     </Link>
                     <h1>Log in</h1>
