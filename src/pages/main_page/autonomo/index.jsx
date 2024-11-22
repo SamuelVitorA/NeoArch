@@ -136,7 +136,7 @@ export default function Main_automo() {
                             required
                         />
                         <button>
-                            <a href={gerarLinkWhatsApp()}>Enviar mensagem</a>
+                            <a href={gerarLinkWhatsApp()}>Send message</a>
                         </button>
                     </form>
                 </div>
