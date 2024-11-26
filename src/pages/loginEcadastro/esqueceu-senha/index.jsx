@@ -10,7 +10,7 @@ export default function EsqueceuSenha() {
     async function confirmar() {
         const data = { email };
         try {
-            const resposta = await axios.post("http://localhost:5022/confirmarEmail", data);
+            const resposta = await axios.post("http://localhost:1234/confirmarEmail", data);
             if (resposta.data.email === email) {
                 navigate('/Mudar_senha');
             } else {

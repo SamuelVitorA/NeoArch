@@ -17,9 +17,10 @@ export default function Config() {
     const navigate = useNavigate();
 
     async function consultar(token) {
-        const url = `http://localhost:5022/info?x-access-token=${token}`;
+        const url = `http://localhost:1234/info?x-access-token=${token}`;
         let resp = await axios.post(url);
         let dados = resp.data;
+        console.log(dados);
         dados = dados[0];
 
         if (dados.nome) setNome(dados.nome);
@@ -43,12 +44,33 @@ export default function Config() {
     }, []);
 
     async function alterando() {
-        const url = `http://localhost:5022/update?x-access-token=${token}`;
+        const url = `http://localhost:1234/update?x-access-token=${token}`;
         let data = {nome: nome, email: email, senha: senha, telefone: telefone, cpf: cpf, endereco: endereco}
 
         const resp = await axios.put(url, data);
+            if (!resp["data"]["Resposta"]) {
+                alert('Erro, enviar email e senha validos.');
+            }
+            else {
+                alert('Alterado com sucesso!');
+                consultar(token);
+            }
+    }
 
-        console.log(resp);
+    function sair() {
+        localStorage.removeItem("USUARIO");
+        navigate("/login");
+    }
+
+    async function deletar_conta() {
+        const url = `http://localhost:1234/delete?x-access-token=${token}`;
+        const resp = await axios.delete(url);
+        if (!resp["data"]["Delete"]) {
+            alert('Erro, não pode ser apagada a conta sem no mínimo um usuario.');
+        }
+        else {
+            sair()
+        }
     }
 
     return (
@@ -91,8 +113,14 @@ export default function Config() {
                             </div>
                         </div>
                     </div>
-                    <h1 className='save' onClick={alterando}>Save</h1>
+                    <button className='save' onClick={alterando}>Save</button>
                 </div>
+
+                <div className='idk'>
+                    <button onClick={sair}>Change account</button>
+                    <button onClick={deletar_conta} className='red'>Delete account</button>
+                </div>
+
             </div>
         </div>
     );

@@ -128,7 +128,7 @@
             align-items: center;
             
             font-size: 16px;
-            background-color: #e78c86; /* Cor de destaque para o botão de sair */
+            background-color: #e78c86;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -155,7 +155,7 @@
         }
   
         li.opcao.ativo::before {
-          background-color: #fff; /* Cor do ponto ativo no modo escuro */
+          background-color: #fff;
         }
       }
     }
@@ -170,7 +170,7 @@
       z-index: 200;
   
       img {
-        width: 3rem; /* Aumentei o tamanho do ícone de abrir/fechar */
+        width: 3rem;
       }
     }
   }

@@ -22,7 +22,7 @@ export default function Mudar_senha() {
                 senha: psw
             }
 
-            let resposta = await axios.put("http://localhost:5022/trocarSenha?id=1", data)
+            let resposta = await axios.put("http://localhost:1234/trocarSenha?id=1", data)
             navigate('/login')
         }
     }

@@ -16,7 +16,7 @@ export default function Cadastro() {
 
                 const data = { email: email, senha: senha };
                 
-                const resposta = await axios.post(`http://localhost:5022/register?x-access-token=${token}`, data);
+                const resposta = await axios.post(`http://localhost:1234/register?x-access-token=${token}`, data);
                 if (!resposta.data.error) {
                     navegacao('/login');
                     console.log(resposta);

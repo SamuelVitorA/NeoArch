@@ -49,7 +49,7 @@ export default function Pedidos() {
             };
 
             const resposta = await axios.put(
-                `http://localhost:5022/orders/update?x-access-token=${token}&id=${id}`,
+                `http://localhost:1234/orders/update?x-access-token=${token}&id=${id}`,
                 pedidoFormatado
             );
             console.log(resposta);
@@ -85,7 +85,7 @@ export default function Pedidos() {
 
     const carregarPedidos = async (tokenAtual) => {
         try {
-            const resposta = await axios.get(`http://localhost:5022/orders/list?x-access-token=${tokenAtual}`);
+            const resposta = await axios.get(`http://localhost:1234/orders/list?x-access-token=${tokenAtual}`);
             setPedidos(resposta.data);
             setPedidosFiltrados(resposta.data);
         } catch (error) {
@@ -206,7 +206,7 @@ export default function Pedidos() {
 
     const removerPedido = async (id) => {
         try {
-            await axios.delete(`http://localhost:5022/orders/delete?x-access-token=${token}&id=${id}`);
+            await axios.delete(`http://localhost:1234/orders/delete?x-access-token=${token}&id=${id}`);
             setPedidos(pedidos.filter((pedido) => pedido.id_agendamento !== id));
             setPedidosFiltrados(pedidosFiltrados.filter((pedido) => pedido.id_agendamento !== id));
         } catch (error) {
@@ -220,9 +220,7 @@ export default function Pedidos() {
         datai: '',
         dataf: '',
         telefone1: '',
-        telefone2: '',
         email1: '',
-        email2: ''
     });
 
     const alternarAdicionarPedido = () => {
@@ -233,9 +231,7 @@ export default function Pedidos() {
             datai: '',
             dataf: '',
             telefone1: '',
-            telefone2: '',
             email1: '',
-            email2: ''
         });
     };
     const salvarPedido = async () => {
@@ -247,9 +243,7 @@ export default function Pedidos() {
             comeco: formatarData(dadosFormulario.datai),
             fim: formatarData(dadosFormulario.dataf),
             telefone: dadosFormulario.telefone1.trim(),
-            telefone2: dadosFormulario.telefone2.trim(),
             email: dadosFormulario.email1.trim(),
-            email2: dadosFormulario.email2.trim()
         };
 
         if (!novoPedido.nome || !novoPedido.comeco || !novoPedido.fim || !novoPedido.telefone || !novoPedido.email) {
@@ -258,7 +252,7 @@ export default function Pedidos() {
         }
 
         try {
-            await axios.post(`http://localhost:5022/orders/create?x-access-token=${token}`, novoPedido);
+            await axios.post(`http://localhost:1234/orders/create?x-access-token=${token}`, novoPedido);
             alternarAdicionarPedido();
             await carregarPedidos(token);
         } catch (error) {
@@ -272,272 +266,292 @@ export default function Pedidos() {
     return (
         <div className="pedidos-container">
             <SideBar opa="1" />
-            <div className="top-bar">
-                <div className='itens'>
-                    <div className="filtros">
-                        {['Price', 'Date', 'Name', 'nº'].map((filtro) => (
-                            <button
-                                key={filtro}
-                                className={`filtro-btn ${filtroAtivo === filtro ? 'ativo' : ''}`}
-                                onClick={() => resetarFiltros(filtro)}
-                            >
-                                {filtro} ▼
-                            </button>
-                        ))}
-                    </div>
-                    <div className='pesquisa'>
-                        <img src="./assets/images/magnifying-glass 1.png" alt="sla" />
-                        <input
-                            type="text"
-                            placeholder="Search"
-                            value={pesquisa}
-                            onChange={(e) => setPesquisa(e.target.value)}
-                        />
-                    </div>
-                    <button className="limpar-filtros" onClick={limparFiltros}>
-                        Clean filters
-                    </button>
-                    <button className="adicionar" onClick={alternarAdicionarPedido}>
-                        <span>+</span>
-                    </button>
-                </div>
-                <div className='ordenarEalternar'>
-                    {filtroAtivo && (
-                        <select
-                            className="ordenacao"
-                            onChange={(e) => setOrdenacao(e.target.value)}
-                            value={ordenacao}
-                        >
-                            <option value="">Order by</option>
-                            {filtroAtivo === 'Name' ? (
-                                <>
-                                    <option value="alfabetica">Alphabetical order</option>
-                                    <option value="reversa">reverse</option>
-                                </>
-                            ) : (
-                                <>
-                                    <option value="crescente">Growing</option>
-                                    <option value="decrescente">Descending</option>
-                                </>
-                            )}
-                        </select>
-                    )}
-                    {filtroAtivo && filtroAtivo !== 'Name' && (
-                        <div className="filtro-menu">
-                            {filtroAtivo === 'Date' && (
-                                <button onClick={() => setTipoData(tipoData === 'comeco' ? 'fim' : 'comeco')}>
-                                    Switch to {tipoData === 'comeco' ? 'end date' : 'start date'}
+            <div className="content">
+                <div className="top-bar">
+                    <div className='itens'>
+                        <div className="filtros">
+                            {['Price', 'Date', 'Name', 'nº'].map((filtro) => (
+                                <button
+                                    key={filtro}
+                                    className={`filtro-btn ${filtroAtivo === filtro ? 'ativo' : ''}`}
+                                    onClick={() => resetarFiltros(filtro)}
+                                >
+                                    {filtro} ▼
                                 </button>
-                            )}
-                            <div className="slider">
-                                <span>{filtroAtivo === 'Date' ? formatarData(range.min) : range.min}</span>
-                                <input
-                                    type="range"
-                                    min={0}
-                                    max={valoresPossiveis().length - 1}
-                                    value={Math.max(0, valoresPossiveis().indexOf(range.min))}
-                                    onChange={(e) =>
-                                        setRange({
-                                            ...range,
-                                            min: valoresPossiveis()[Math.max(0, parseInt(e.target.value))],
-                                        })
-                                    }
-                                />
-                                <input
-                                    type="range"
-                                    min={0}
-                                    max={valoresPossiveis().length - 1}
-                                    value={Math.min(valoresPossiveis().length - 1, valoresPossiveis().indexOf(range.max))}
-                                    onChange={(e) =>
-                                        setRange({
-                                            ...range,
-                                            max: valoresPossiveis()[Math.min(valoresPossiveis().length - 1, parseInt(e.target.value))],
-                                        })
-                                    }
-                                />
-                                <span>{filtroAtivo === 'Date' ? formatarData(range.max) : range.max}</span>
-                            </div>
+                            ))}
                         </div>
-                    )}
-                </div>
-            </div>
-            {adicionando && (
-                <div className="cardP">
-                    <div className="esq">
-                        <div>
-                            <h1>Name</h1>
+                        <div className='pesquisa'>
+                            <img src="./assets/images/magnifying-glass 1.png" alt="sla" />
                             <input
-                                className="a"
                                 type="text"
-                                name="nome"
-                                placeholder="Digite o nome"
-                                value={dadosFormulario.nome}
-                                onChange={alterarEntrada}
-                                required
+                                placeholder="Search"
+                                value={pesquisa}
+                                onChange={(e) => setPesquisa(e.target.value)}
                             />
                         </div>
-                        <div>
-                            <h1>Price</h1>
-                            <input
-                                className="a"
-                                type="number"
-                                name="valor"
-                                placeholder="Digite o orçamento"
-                                value={'dadosFormulario'.valor}
-                                onChange={alterarEntrada}
-                                required
-                            />
-                        </div>
-                        <div>
-                            <h1>Start date</h1>
-                            <input
-                                className="a"
-                                type="date"
-                                name="datai"
-                                value={'dadosFormulario'.datai}
-                                onChange={alterarEntrada}
-                                required
-                            />
-                        </div>
-                        <div>
-                            <h1>End date</h1>
-                            <input
-                                className="a"
-                                type="date"
-                                name="dataf"
-                                value={dadosFormulario.dataf}
-                                onChange={alterarEntrada}
-                                required
-                            />
-                        </div>
+                        <button className="limpar-filtros" onClick={limparFiltros}>
+                            Clean filters
+                        </button>
+                        <button className="adicionar" onClick={alternarAdicionarPedido}>
+                            <span>+</span>
+                        </button>
                     </div>
-                    <div className="dir">
-                        <div>
-                            <h1>Telephone</h1>
-                            <input
-                                className="a"
-                                type="tel"
-                                name="telefone1"
-                                placeholder="Digite o telefone"
-                                value={dadosFormulario.telefone1}
-                                onChange={alterarEntrada}
-                                required
-                            />
-                        </div>
-                        <div>
-                            <h1>Email</h1>
-                            <input
-                                className="a"
-                                type="email"
-                                name="email1"
-                                placeholder="Digite o email"
-                                value={dadosFormulario.email1}
-                                onChange={alterarEntrada}
-                                required
-                            />
-                        </div>
-                        <div>
-                            <h1>2° phone number</h1>
-                            <input
-                                className="a"
-                                type="tel"
-                                name="telefone2"
-                                placeholder="Digite o telefone opcional"
-                                value={dadosFormulario.telefone2}
-                                onChange={alterarEntrada}
-                            />
-                        </div>
-                        <div>
-                            <h1>2° Email</h1>
-                            <input
-                                className="a"
-                                type="email"
-                                name="email2"
-                                placeholder="Digite o email opcional"
-                                value={dadosFormulario.email2}
-                                onChange={alterarEntrada}
-                            />
-                        </div>
-                    </div>
-                    <div className="botao">
-                        <h3 onClick={salvarPedido}>Save</h3>
-                        <h3 className="cancel" onClick={alternarAdicionarPedido}>Cancel</h3>
-                    </div>
-                </div>
-            )}
-            <div className="pedidos-lista">
-                {pedidosFiltrados.map((pedido) => (
-                    <div
-                        key={pedido.id_agendamento}
-                        className={`pedido-card ${cardDestaque === pedido.id_agendamento ? 'destaque' : ''}`}
-                        onClick={() => modoEdicao !== pedido.id_agendamento ? destacarCard(pedido.id_agendamento) : ""}
-                    >
-                        {modoEdicao === pedido.id_agendamento ? (
-                            <div className='alterar'>
-                                <input
-                                    type="text"
-                                    value={novoPedido.nome}
-                                    onChange={(e) =>
-                                        setNovoPedido({ ...novoPedido, nome: e.target.value })
-                                    }
-                                />
-                                <input
-                                    type="number"
-                                    value={novoPedido.preco}
-                                    onChange={(e) =>
-                                        setNovoPedido({ ...novoPedido, preco: Number(e.target.value) })
-                                    }
-                                />
-                                <input
-                                    type="date"
-                                    value={new Date(novoPedido.comeco).toISOString().split('T')[0]}
-                                    onChange={(e) =>
-                                        setNovoPedido({
-                                            ...novoPedido,
-                                            comeco: new Date(e.target.value).toISOString(),
-                                        })
-                                    }
-                                />
-                                <input
-                                    type="date"
-                                    value={new Date(novoPedido.fim).toISOString().split('T')[0]}
-                                    onChange={(e) =>
-                                        setNovoPedido({
-                                            ...novoPedido,
-                                            fim: new Date(e.target.value).toISOString(),
-                                        })
-                                    }
-                                />
-                                <div className="edit_actions">
-                                    <button onClick={() => salvarEdicao(pedido.id_agendamento)}>
-                                        Confirm
+                    <div className='ordenarEalternar'>
+                        {filtroAtivo && (
+                            <select
+                                className="ordenacao"
+                                onChange={(e) => setOrdenacao(e.target.value)}
+                                value={ordenacao}
+                            >
+                                <option value="">Order by</option>
+                                {filtroAtivo === 'Name' ? (
+                                    <>
+                                        <option value="alfabetica">Alphabetical order</option>
+                                        <option value="reversa">reverse</option>
+                                    </>
+                                ) : (
+                                    <>
+                                        <option value="crescente">Growing</option>
+                                        <option value="decrescente">Descending</option>
+                                    </>
+                                )}
+                            </select>
+                        )}
+                        {filtroAtivo && filtroAtivo !== 'Name' && (
+                            <div className="filtro-menu">
+                                {filtroAtivo === 'Date' && (
+                                    <button onClick={() => setTipoData(tipoData === 'comeco' ? 'fim' : 'comeco')}>
+                                        Switch to {tipoData === 'comeco' ? 'end date' : 'start date'}
                                     </button>
-                                    <button onClick={cancelarEdicao}>
-                                        Cancel
-                                    </button>
+                                )}
+                                <div className="slider">
+                                    <span>{filtroAtivo === 'Date' ? formatarData(range.min) : range.min}</span>
+                                    <input
+                                        type="range"
+                                        min={0}
+                                        max={valoresPossiveis().length - 1}
+                                        value={Math.max(0, valoresPossiveis().indexOf(range.min))}
+                                        onChange={(e) =>
+                                            setRange({
+                                                ...range,
+                                                min: valoresPossiveis()[Math.max(0, parseInt(e.target.value))],
+                                            })
+                                        }
+                                    />
+                                    <input
+                                        type="range"
+                                        min={0}
+                                        max={valoresPossiveis().length - 1}
+                                        value={Math.min(valoresPossiveis().length - 1, valoresPossiveis().indexOf(range.max))}
+                                        onChange={(e) =>
+                                            setRange({
+                                                ...range,
+                                                max: valoresPossiveis()[Math.min(valoresPossiveis().length - 1, parseInt(e.target.value))],
+                                            })
+                                        }
+                                    />
+                                    <span>{filtroAtivo === 'Date' ? formatarData(range.max) : range.max}</span>
                                 </div>
                             </div>
-                        ) : (
-                            <>
-                                <div className='top'>
-                                    <h3>{pedido.nome}</h3>
-                                    <p className="card-info">nº {pedido.id_agendamento}</p>
-                                </div>
-                                <p className="card-info">Price: R${pedido.preco}</p>
-                                <p className="card-info">Start date: {formatarData(pedido.comeco)}</p>
-                                <p className="card-info">Order deadline: {formatarData(pedido.fim)}</p>
-                                <div className="edit_delete">
-                                    <button onClick={() => iniciarEdicao(pedido)}>
-                                        <img src="./assets/images/lapis.png" alt="Editar" />
-                                    </button>
-                                    <button onClick={() => removerPedido(pedido.id_agendamento)}>
-                                        <img src="./assets/images/vector.png" alt="Apagar" />
-                                    </button>
-                                </div>
-                            </>
                         )}
                     </div>
-                ))}
+                </div>
+                {adicionando && (
+                    <div className="cardP">
+                        <div className="esq">
+                            <div>
+                                <h1>Name</h1>
+                                <input
+                                    className="a"
+                                    type="text"
+                                    name="nome"
+                                    placeholder="Digite o nome"
+                                    value={dadosFormulario.nome}
+                                    onChange={alterarEntrada}
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <h1>Price</h1>
+                                <input
+                                    className="a"
+                                    type="number"
+                                    name="valor"
+                                    placeholder="Digite o orçamento"
+                                    value={'dadosFormulario'.valor}
+                                    onChange={alterarEntrada}
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <h1>Start date</h1>
+                                <input
+                                    className="a"
+                                    type="date"
+                                    name="datai"
+                                    value={'dadosFormulario'.datai}
+                                    onChange={alterarEntrada}
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <h1>End date</h1>
+                                <input
+                                    className="a"
+                                    type="date"
+                                    name="dataf"
+                                    value={dadosFormulario.dataf}
+                                    onChange={alterarEntrada}
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div className="dir">
+                            <div>
+                                <h1>Telephone</h1>
+                                <input
+                                    className="a"
+                                    type="tel"
+                                    name="telefone1"
+                                    placeholder="Digite o telefone"
+                                    value={dadosFormulario.telefone1}
+                                    onChange={alterarEntrada}
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <h1>Email</h1>
+                                <input
+                                    className="a"
+                                    type="email"
+                                    name="email1"
+                                    placeholder="Digite o email"
+                                    value={dadosFormulario.email1}
+                                    onChange={alterarEntrada}
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div className="botao">
+                            <h3 onClick={salvarPedido}>Save</h3>
+                            <h3 className="cancel" onClick={alternarAdicionarPedido}>Cancel</h3>
+                        </div>
+                    </div>
+                )}
+                <div className="pedidos-lista">
+                    {pedidosFiltrados.map((pedido) => (
+                        <div
+                            key={pedido.id_agendamento}
+                            className={`pedido-card ${cardDestaque === pedido.id_agendamento ? 'destaque' : ''}`}
+                            onClick={() => modoEdicao !== pedido.id_agendamento ? destacarCard(pedido.id_agendamento) : ""}
+                        >
+                            {modoEdicao === pedido.id_agendamento ? (
+                                <div className='alterar'>
+                                    <div className='inputs'>
+                                        <label>Name</label>
+                                        <input
+                                            type="text"
+                                            value={novoPedido.nome}
+                                            onChange={(e) =>
+                                                setNovoPedido({ ...novoPedido, nome: e.target.value })
+                                            }
+                                        />
+                                    </div>
+
+                                    <div className='inputs'>
+                                        <label>Price</label>
+                                        <input
+                                            type="number"
+                                            value={novoPedido.preco}
+                                            onChange={(e) =>
+                                                setNovoPedido({ ...novoPedido, preco: Number(e.target.value) })
+                                            }
+                                        />
+                                    </div>
+
+                                    <div className='inputs'>
+                                        <label>Start date</label>
+                                        <input
+                                            type="date"
+                                            value={new Date(novoPedido.comeco).toISOString().split('T')[0]}
+                                            onChange={(e) =>
+                                                setNovoPedido({
+                                                    ...novoPedido,
+                                                    comeco: new Date(e.target.value).toISOString(),
+                                                })
+                                            }
+                                        />
+                                    </div>
+
+                                    <div className='inputs'>
+                                        <label>Order deadline</label>
+                                        <input
+                                            type="date"
+                                            value={new Date(novoPedido.fim).toISOString().split('T')[0]}
+                                            onChange={(e) =>
+                                                setNovoPedido({
+                                                    ...novoPedido,
+                                                    fim: new Date(e.target.value).toISOString(),
+                                                })
+                                            }
+                                        />
+                                    </div>
+
+                                    <div className='inputs'>
+                                        <label>Email</label>
+                                        <input
+                                            type="email"
+                                            value={novoPedido.email}
+                                            onChange={(e) =>
+                                                setNovoPedido({ ...novoPedido, email: e.target.value })
+                                            }
+                                        />
+                                    </div>
+
+                                    <div className='inputs'>
+                                        <label>Phone</label>
+                                        <input
+                                            type="tel"
+                                            value={novoPedido.telefone}
+                                            onChange={(e) =>
+                                                setNovoPedido({ ...novoPedido, telefone: e.target.value })
+                                            }
+                                        />
+                                    </div>
+                                    <div className="edit_actions">
+                                        <button onClick={() => salvarEdicao(pedido.id_agendamento)}>
+                                            Confirm
+                                        </button>
+                                        <button onClick={cancelarEdicao}>
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            ) : (
+                                <>
+                                    <div className='top'>
+                                        <h3>{pedido.nome}</h3>
+                                        <p className="card-info">nº {pedido.id_agendamento}</p>
+                                    </div>
+                                    <p className="card-info">Price: R${pedido.preco}</p>
+                                    <p className="card-info">Start date: {formatarData(pedido.comeco)}</p>
+                                    <p className="card-info">Order deadline: {formatarData(pedido.fim)}</p>
+                                    <p className="card-info"></p>
+                                    <p className="card-info">Email: {pedido.email}</p>
+                                    <p className="card-info">Phone-number: {pedido.telefone}</p>
+                                    <div className="edit_delete">
+                                        <button onClick={() => iniciarEdicao(pedido)}>
+                                            <img src="./assets/images/lapis.png" alt="Editar" />
+                                        </button>
+                                        <button onClick={() => removerPedido(pedido.id_agendamento)}>
+                                            <img src="./assets/images/vector.png" alt="Apagar" />
+                                        </button>
+                                    </div>
+                                </>
+                            )}
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
